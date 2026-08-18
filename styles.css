@@ -160,6 +160,29 @@ h1 {
 .placeholder-grid article > span { color: var(--gold); font: 600 15px "Cormorant Garamond", serif; }
 .placeholder-grid h3 { margin-top: 38px; font: 600 25px "Cormorant Garamond", serif; }
 .placeholder-grid p { color: var(--muted); font-size: 13px; }
+.placeholder-grid p + p { margin-top: 14px; }
+.placeholder-grid strong { color: var(--ink); }
+.schedule-panel { border-top: 1px solid var(--line); }
+.schedule-heading, .schedule-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.9fr 1.25fr;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.schedule-heading {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.schedule-row { font-size: 13px; }
+.schedule-row span { color: var(--muted); }
+.schedule-row.holy-day { color: var(--red); background: rgba(152, 46, 45, 0.035); }
+.schedule-row.holy-day span { color: var(--red); font-weight: 600; }
+.schedule-note { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .section-dark { color: white; background: var(--deep); }
 .section-dark .section-kicker { color: var(--gold-light); }
 .section-dark .section-intro { color: rgba(255, 255, 255, 0.68); }
@@ -234,6 +257,7 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .hero-address { align-items: flex-start; text-align: left; }
   .image-frame { border-width: 5px; }
   .section-inner { width: calc(100% - 28px); }
+  .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.9fr 1.2fr; gap: 8px; font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
