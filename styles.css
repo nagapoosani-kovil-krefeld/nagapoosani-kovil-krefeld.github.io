@@ -151,6 +151,8 @@ h1 {
 .split { display: grid; grid-template-columns: 1fr 0.9fr; gap: 80px; align-items: end; }
 .section h2 { font: 600 clamp(39px, 4.5vw, 65px)/1 "Cormorant Garamond", serif; letter-spacing: -0.025em; }
 .section-intro, .narrow > p { margin: 0; color: var(--muted); line-height: 1.8; }
+.section-intro p { margin: 0; }
+.section-intro p + p { margin-top: 18px; }
 .section-soft { background: var(--cream); }
 .placeholder-grid { display: grid; gap: 18px; margin-top: 50px; }
 .placeholder-grid.three { grid-template-columns: repeat(3, 1fr); }
