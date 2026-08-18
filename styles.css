@@ -186,6 +186,13 @@ h1 {
 .section-dark { color: white; background: var(--deep); }
 .section-dark .section-kicker { color: var(--gold-light); }
 .section-dark .section-intro { color: rgba(255, 255, 255, 0.68); }
+.visit-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 80px; align-items: end; }
+.visit-intro .section-kicker { grid-column: 1 / -1; margin-bottom: 0; }
+.visit-intro > p:last-child { margin: 0; color: rgba(255, 255, 255, 0.68); line-height: 1.8; }
+.visit-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 58px; background: rgba(255, 255, 255, 0.14); }
+.visit-list article { min-height: 160px; padding: 28px; background: var(--deep); }
+.visit-list span { color: var(--gold-light); font: 600 14px "Cormorant Garamond", serif; }
+.visit-list p { margin: 28px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 13px; line-height: 1.65; }
 .gallery-placeholder {
   min-height: 340px; margin-top: 44px; display: grid; place-items: center; padding: 30px;
   color: var(--muted); text-align: center; border: 1px dashed rgba(20, 43, 42, 0.26);
@@ -243,6 +250,9 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .section { padding: 80px 0; }
   .section-inner { width: calc(100% - 36px); }
   .split, .contact-grid { grid-template-columns: 1fr; gap: 28px; align-items: start; }
+  .visit-intro { grid-template-columns: 1fr; gap: 24px; }
+  .visit-intro .section-kicker { grid-column: auto; }
+  .visit-list { grid-template-columns: 1fr 1fr; }
   .placeholder-grid.three { grid-template-columns: 1fr; }
   .site-footer > div { width: calc(100% - 36px); flex-direction: column; }
 }
@@ -257,6 +267,7 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .hero-address { align-items: flex-start; text-align: left; }
   .image-frame { border-width: 5px; }
   .section-inner { width: calc(100% - 28px); }
+  .visit-list { grid-template-columns: 1fr; }
   .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.9fr 1.2fr; gap: 8px; font-size: 11px; }
 }
 
