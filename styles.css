@@ -190,9 +190,9 @@ h1 {
 .visit-intro .section-kicker { grid-column: 1 / -1; margin-bottom: 0; }
 .visit-intro > p:last-child { margin: 0; color: rgba(255, 255, 255, 0.68); line-height: 1.8; }
 .visit-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 58px; background: rgba(255, 255, 255, 0.14); }
-.visit-list article { min-height: 160px; padding: 28px; background: var(--deep); }
-.visit-list span { color: var(--gold-light); font: 600 14px "Cormorant Garamond", serif; }
-.visit-list p { margin: 28px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 13px; line-height: 1.65; }
+.visit-list article { position: relative; min-height: 138px; padding: 34px 28px 28px; background: var(--deep); }
+.visit-list article::before { content: ""; position: absolute; top: 24px; left: 28px; width: 28px; height: 2px; background: var(--gold-light); }
+.visit-list p { margin: 26px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 13px; line-height: 1.65; }
 .gallery-placeholder {
   min-height: 340px; margin-top: 44px; display: grid; place-items: center; padding: 30px;
   color: var(--muted); text-align: center; border: 1px dashed rgba(20, 43, 42, 0.26);
