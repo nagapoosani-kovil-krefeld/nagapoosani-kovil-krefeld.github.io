@@ -14,6 +14,10 @@
       html[data-language="de"] .schedule-lang-de,
       html[data-language="ta"] .schedule-lang-ta,
       html[data-language="en"] .schedule-lang-en { display: inline; }
+      html[lang="ta"] .schedule-row.holy-day:not(.aanjaneyar-day) strong::after { content: "✦ விசேட வழிபாட்டு நாள்"; }
+      .schedule-row.holy-day.aanjaneyar-day strong::after { content: "✦ Hanuman Pooja"; }
+      html[lang="ta"] .schedule-row.holy-day.aanjaneyar-day strong::after { content: "✦ ஆஞ்சநேயர் பூஜை"; }
+      html[lang="en"] .schedule-row.holy-day.aanjaneyar-day strong::after { content: "✦ Hanuman Pooja"; }
     </style>
   </head>
   <body>
@@ -167,7 +171,7 @@
             <div class="schedule-row"><strong><span class="schedule-lang schedule-lang-de">Mittwoch</span><span class="schedule-lang schedule-lang-ta">புதன்கிழமை</span><span class="schedule-lang schedule-lang-en">Wednesday</span></strong><span><span class="schedule-lang schedule-lang-de">17:30 Uhr</span><span class="schedule-lang schedule-lang-ta">17:30 மணி</span><span class="schedule-lang schedule-lang-en">5:30 PM</span></span><span><span class="schedule-lang schedule-lang-de">18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி</span><span class="schedule-lang schedule-lang-en">6:00 PM</span></span></div>
             <div class="schedule-row"><strong><span class="schedule-lang schedule-lang-de">Donnerstag</span><span class="schedule-lang schedule-lang-ta">வியாழக்கிழமை</span><span class="schedule-lang schedule-lang-en">Thursday</span></strong><span><span class="schedule-lang schedule-lang-de">17:30 Uhr</span><span class="schedule-lang schedule-lang-ta">17:30 மணி</span><span class="schedule-lang schedule-lang-en">5:30 PM</span></span><span><span class="schedule-lang schedule-lang-de">18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி</span><span class="schedule-lang schedule-lang-en">6:00 PM</span></span></div>
             <div class="schedule-row holy-day"><strong><span class="schedule-lang schedule-lang-de">Freitag</span><span class="schedule-lang schedule-lang-ta">வெள்ளிக்கிழமை</span><span class="schedule-lang schedule-lang-en">Friday</span></strong><span><span class="schedule-lang schedule-lang-de">17:00 Uhr</span><span class="schedule-lang schedule-lang-ta">17:00 மணி</span><span class="schedule-lang schedule-lang-en">5:00 PM</span></span><span><span class="schedule-lang schedule-lang-de">18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி</span><span class="schedule-lang schedule-lang-en">6:00 PM</span></span></div>
-            <div class="schedule-row holy-day"><strong><span class="schedule-lang schedule-lang-de">Samstag</span><span class="schedule-lang schedule-lang-ta">சனிக்கிழமை</span><span class="schedule-lang schedule-lang-en">Saturday</span></strong><span><span class="schedule-lang schedule-lang-de">11:30 Uhr</span><span class="schedule-lang schedule-lang-ta">11:30 மணி</span><span class="schedule-lang schedule-lang-en">11:30 AM</span></span><span><span class="schedule-lang schedule-lang-de">Hanuman Pooja · 12:00 Uhr</span><span class="schedule-lang schedule-lang-ta">ஆஞ்சநேயர் பூஜை · 12:00 மணி</span><span class="schedule-lang schedule-lang-en">Hanuman Pooja · 12:00 PM</span></span></div>
+            <div class="schedule-row holy-day aanjaneyar-day"><strong><span class="schedule-lang schedule-lang-de">Samstag</span><span class="schedule-lang schedule-lang-ta">சனிக்கிழமை</span><span class="schedule-lang schedule-lang-en">Saturday</span></strong><span><span class="schedule-lang schedule-lang-de">11:30 Uhr</span><span class="schedule-lang schedule-lang-ta">11:30 மணி</span><span class="schedule-lang schedule-lang-en">11:30 AM</span></span><span><span class="schedule-lang schedule-lang-de">Hanuman Pooja · 12:00 Uhr</span><span class="schedule-lang schedule-lang-ta">ஆஞ்சநேயர் பூஜை · 12:00 மணி</span><span class="schedule-lang schedule-lang-en">Hanuman Pooja · 12:00 PM</span></span></div>
             <div class="schedule-row"><strong><span class="schedule-lang schedule-lang-de">Sonntag</span><span class="schedule-lang schedule-lang-ta">ஞாயிற்றுக்கிழமை</span><span class="schedule-lang schedule-lang-en">Sunday</span></strong><span><span class="schedule-lang schedule-lang-de">11:30 Uhr</span><span class="schedule-lang schedule-lang-ta">11:30 மணி</span><span class="schedule-lang schedule-lang-en">11:30 AM</span></span><span><span class="schedule-lang schedule-lang-de">12:00 Uhr</span><span class="schedule-lang schedule-lang-ta">12:00 மணி</span><span class="schedule-lang schedule-lang-en">12:00 PM</span></span></div>
             <a class="announcement-card" href="dokumente/aktuelle-pooja-ankuendigung.pdf?v=20260819-1" target="_blank" rel="noreferrer" aria-label="Aktuelle Ankündigungen als PDF öffnen">
               <span class="announcement-icon" aria-hidden="true">
@@ -197,7 +201,6 @@
           </div>
         </div>
       </section>
-
       <section class="section" id="galerie">
         <div class="section-inner">
           <p class="section-kicker">Einblicke</p><h2>Bildergalerie</h2>
