@@ -43,7 +43,7 @@ const tamilText = {
   "Bei der Übergabe der Milch können die Gläubigen ihre persönlichen Wünsche und Gebete vorbringen. Mit der Opfergabe verbinden sie die Hoffnung, dass Sri Nagapoosani Ambaal ihre Bitten erhört und ihnen ihren Segen schenkt.": "பால் அபிஷேகம் செலுத்தும் போது தங்கள் வேண்டுதல்களையும் பிரார்த்தனைகளையும் மனதில் கொண்டு அம்பாளை வேண்டிக்கொள்ளலாம். தங்கள் வேண்டுதல்களை அம்பாள் ஏற்று அருள்புரிவார் என்ற நம்பிக்கையுடன் பக்தர்கள் இக்காணிக்கையை செலுத்துகின்றனர்.",
   "Pooja": "பூஜை",
   "Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "அபிஷேகம் நிறைவடைந்த பின்னர் பொதுப் பூஜை நடைபெறும். அன்றைய பூஜை ஆரம்ப நேரத்தை வார அட்டவணையில் காணலாம்.",
-  "Besondere heilige Tage": "விசேட புனித நாட்கள்",
+  "Besondere heilige Tage": "விசேட பூஜை நாட்கள்",
   "Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "செவ்வாய்க்கிழமையும் வெள்ளிக்கிழமையும் எமது ஆலயத்தின் விசேட வழிபாட்டு நாட்களாகும். இவ்விரு நாட்களிலும் அபிஷேகம் மாலை 17:00 மணிக்கும், அதனைத் தொடர்ந்து பூஜை 18:00 மணிக்கும் ஆரம்பமாகும்.",
   "Persönliche Gebete · Opfergaben": "தனிப்பட்ட பிரார்த்தனைகள் · காணிக்கைகள்",
   "Archanai – ein persönliches Gebet an Ambaal": "அர்ச்சனை – அம்பாளிடம் ஒரு தனிப்பட்ட பிரார்த்தனை",
