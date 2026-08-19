@@ -227,7 +227,7 @@ h1 {
 .contact-grid p { color: var(--muted); }
 address { display: flex; flex-direction: column; gap: 8px; font-style: normal; font-size: 14px; }
 address strong { margin-bottom: 8px; }
-address a { color: var(--red); font-weight: 700; }
+address a { color: var(--red); font-weight: 700; overflow-wrap: anywhere; }
 address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
 .site-footer { padding: 26px 0; color: rgba(255, 255, 255, 0.7); background: #081e1d; font-size: 11px; }
 .site-footer > div { width: min(1180px, calc(100% - 56px)); margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; }
