@@ -256,10 +256,8 @@ h1 {
   top: 0;
   bottom: 0;
   left: -19px;
-  width: 19px;
-  box-sizing: border-box;
-  border-left: 4px solid var(--gold);
-  background: rgba(225, 195, 129, 0.3);
+  width: 4px;
+  background: var(--gold);
 }
 .schedule-row.holy-day strong {
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
