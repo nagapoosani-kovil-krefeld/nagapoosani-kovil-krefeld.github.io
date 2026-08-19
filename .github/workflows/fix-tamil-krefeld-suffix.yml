@@ -1,0 +1,38 @@
+name: Fix Tamil Krefeld suffix form
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Replace suffix form
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('script.js')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('கிரேபில்டில்', 'கிறிபில்டில்')
+          text = text.replace('கிரெஃபெல்டில்', 'கிறிபில்டில்')
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit correction
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix Tamil Krefeld suffix form"
+          git push origin HEAD:main
