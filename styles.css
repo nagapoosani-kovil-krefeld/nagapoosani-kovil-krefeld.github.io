@@ -177,8 +177,8 @@ h1 {
 .placeholder-grid { display: grid; gap: 18px; margin-top: 50px; }
 .placeholder-grid.three { grid-template-columns: repeat(3, 1fr); }
 .placeholder-grid article { padding: 32px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.52); }
-.placeholder-grid article > span { color: var(--gold); font: 600 15px "Cormorant Garamond", serif; }
-.placeholder-grid h3 { margin-top: 38px; font: 600 25px "Cormorant Garamond", serif; }
+.pooja-accent { display: block; width: 42px; height: 2px; background: var(--gold); }
+.placeholder-grid h3 { margin-top: 30px; font: 600 25px "Cormorant Garamond", serif; }
 .placeholder-grid p { color: var(--muted); font-size: 13px; }
 .placeholder-grid p + p { margin-top: 14px; }
 .placeholder-grid strong { color: var(--ink); }
