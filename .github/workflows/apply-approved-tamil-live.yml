@@ -1,0 +1,50 @@
+name: Apply approved Tamil live copy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-approved-tamil-live.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply approved Tamil changes only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          replacements = [
+            ('"Tempel Krefeld": "ஆலயம் கிறிபில்ட்"', '"Tempel Krefeld": "கிறிபில்ட் ஆலயம்"'),
+            ('"Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்தை அறிந்துகொள்ளவும், பூஜைகளில் கலந்துகொள்ளவும், எமது சமூகத்தின் ஆன்மீக அனுபவத்தைப் பகிர்ந்துகொள்ளவும் அனைவரையும் அன்புடன் வரவேற்கிறோம்."', '"Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்திற்கு வருகை தந்து, பூஜைகளில் கலந்து கொண்டு, எமது ஆன்மீக மரபையும் சமூக உறவையும் அனுபவிக்க அனைவரையும் அன்புடன் அழைக்கிறோம்."'),
+            ('"Unseren Tempel entdecken": "எமது ஆலயத்தை அறிந்துகொள்ளுங்கள்"', '"Unseren Tempel entdecken": "எமது ஆலயத்தைப் பற்றி அறிய"'),
+            ('"Kontakt & Anfahrt": "தொடர்பு மற்றும் வழிகாட்டல்"', '"Kontakt & Anfahrt": "தொடர்பு · வருகை வழி"'),
+            ('"Möge ihr Segen allen zuteilwerden.": "அம்பாளின் அருள் அனைவருக்கும் கிடைக்கட்டும்."', '"Möge ihr Segen allen zuteilwerden.": "அம்பாளின் திருவருள் அனைவருக்கும் கிடைக்கட்டும்."'),
+            ('"Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der tamilisch-hinduistischen Tradition und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. bietet der Tempel unserer Gemeinschaft einen gemeinsamen Ort für Poojas, religiöse Feste und kulturelles Leben. Auch Menschen, die unseren Glauben und unsere Tradition kennenlernen möchten, sind herzlich willkommen.": "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் வழிபாடு, தமிழ் இந்து பாரம்பரியம் மற்றும் மக்களின் சந்திப்புக்கான இடமாகும். கிறிபில்ட் தமிழ் கலாசாரச் சங்கத்தால் நடத்தப்படும் இவ்வாலயம், பூஜைகள், சமய விழாக்கள் மற்றும் கலாசார நிகழ்வுகளுக்காக எமது சமூகத்தை ஒன்றிணைக்கிறது. எமது சமயத்தையும் பாரம்பரியத்தையும் அறிந்துகொள்ள விரும்பும் அனைவரையும் அன்புடன் வரவேற்கிறோம்."', '"Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der tamilisch-hinduistischen Tradition und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. bietet der Tempel unserer Gemeinschaft einen gemeinsamen Ort für Poojas, religiöse Feste und kulturelles Leben. Auch Menschen, die unseren Glauben und unsere Tradition kennenlernen möchten, sind herzlich willkommen.": "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் ஒரு வழிபாட்டுத் தலம் மட்டுமல்ல; எமது மக்களின் ஆன்மீக வாழ்க்கையோடு இணைந்த ஒரு முக்கியமான இடமாகவும் விளங்குகிறது. கிறிபில்ட் தமிழ் கலாசாரச் சங்கம் e.V. நிர்வகிக்கும் இவ்வாலயத்தில் தினசரி பூஜைகள், விசேஷ வழிபாடுகள், சமய விழாக்கள் மற்றும் கலாசார நிகழ்வுகள் நடைபெற்று வருகின்றன. பெரியோர்கள் முதல் இளைய தலைமுறையினர் வரை அனைவரும் ஒன்றிணைந்து, சமய அறிவையும் சமூக உறவையும் பகிர்ந்து கொள்ளும் இடமாகவும் எமது ஆலயம் திகழ்கிறது. ஆலயத்திற்கு வருகை தரும் அனைவரையும் அன்புடன் வரவேற்கிறோம்."'),
+            ('"Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Sie wird von unserer Gemeinschaft als schützende und segenspendende Göttin verehrt. Durch Gebete, Poojas und gemeinsame Feste bewahren wir unsere Traditionen und geben sie an die nächste Generation weiter.": "எமது ஆலயத்தின் பிரதான தெய்வமாக ஸ்ரீ நாகபூசணி அம்பாள் விளங்குகிறார். எமது சமூகத்தினர் அம்பாளை பாதுகாப்பும் அருளும் வழங்கும் தெய்வமாகப் போற்றி வழிபடுகின்றனர். பிரார்த்தனைகள், பூஜைகள் மற்றும் ஒன்றிணைந்த விழாக்கள் மூலம் எமது பாரம்பரியத்தைப் பேணிப் பாதுகாத்து அடுத்த தலைமுறைக்கு எடுத்துச் செல்கிறோம்."', '"Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Sie wird von unserer Gemeinschaft als schützende und segenspendende Göttin verehrt. Durch Gebete, Poojas und gemeinsame Feste bewahren wir unsere Traditionen und geben sie an die nächste Generation weiter.": "எமது ஆலயத்தின் பிரதான தெய்வமாக ஸ்ரீ நாகபூசணி அம்பாள் எழுந்தருளி அருள்பாலித்து வருகின்றார். தம்மை நம்பிக்கையுடன் நாடி வருவோருக்கு தாயின் அரவணைப்பைப் போன்று நலம், பாதுகாப்பு, மனநிம்மதி மற்றும் வாழ்வில் வளம் கிடைக்கும் என்ற நம்பிக்கையுடன் பக்தர்கள் வழிபடுகின்றனர். மனதில் தாங்கி வரும் வேண்டுதல்கள், கவலைகள் மற்றும் நன்றிகளை திருவடிகளில் சமர்ப்பித்து, வாழ்க்கைப் பயணத்தில் துணையும் வழிகாட்டுதலும் வேண்டுகின்றனர். அதேபோல் உலகில் அநீதி அகன்று நீதி நிலைக்கவும், துன்பங்கள் குறைந்து மக்கள் அமைதியுடனும் ஒற்றுமையுடனும் வாழவும் அம்பாளை வேண்டிப் பிரார்த்திக்கின்றனர். அபிஷேகம், பூஜை, அர்ச்சனை மற்றும் விசேஷ வழிபாடுகள் வழியாக இந்த இறைநம்பிக்கை தலைமுறைகள் கடந்தும் தொடர்ந்து வருகிறது."'),
+          ]
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f'Missing expected source text: {old[:80]}')
+              s = s.replace(old, new, 1)
+          required_unchanged = '"Sri Nagapoosani Ambaal Tempel Krefeld": "ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் கிறிபில்ட்"'
+          if required_unchanged not in s:
+              raise SystemExit('Protected temple title changed unexpectedly')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit approved Tamil live changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git diff --cached --quiet || git commit -m "Publish approved Tamil copy updates"
+          git push origin main
