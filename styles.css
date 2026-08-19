@@ -246,7 +246,7 @@ h1 {
 .schedule-row { font-size: 13px; }
 .schedule-row span { color: var(--muted); }
 .schedule-row.holy-day {
-  color: var(--deep); padding-left: 16px;
+  color: var(--deep);
   background: linear-gradient(90deg, rgba(225, 195, 129, 0.3), rgba(225, 195, 129, 0.1));
   box-shadow: inset 4px 0 0 var(--gold);
 }
