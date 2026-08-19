@@ -1,13 +1,49 @@
-name: Archived schedule helper
+name: Correct weekly Pooja wording
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  noop:
+  update:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Temporary schedule helper is disabled."
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Correct schedule wording
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          html = path.read_text(encoding='utf-8')
+
+          replacements = {
+            '<span class="schedule-lang schedule-lang-de">im Anschluss</span><span class="schedule-lang schedule-lang-ta">அதனைத் தொடர்ந்து</span><span class="schedule-lang schedule-lang-en">afterwards</span>': '<span class="schedule-lang schedule-lang-de">18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி</span><span class="schedule-lang schedule-lang-en">6:00 PM</span>',
+            '<span class="schedule-lang schedule-lang-de">ab 18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி முதல்</span><span class="schedule-lang schedule-lang-en">from 6:00 PM</span>': '<span class="schedule-lang schedule-lang-de">18:00 Uhr</span><span class="schedule-lang schedule-lang-ta">18:00 மணி</span><span class="schedule-lang schedule-lang-en">6:00 PM</span>',
+            '<span class="schedule-lang schedule-lang-ta">ஹனுமான் பூஜை · 12:00 மணி</span>': '<span class="schedule-lang schedule-lang-ta">ஆஞ்சநேயர் பூஜை · 12:00 மணி</span>',
+          }
+
+          for old, new in replacements.items():
+              if old not in html:
+                  raise SystemExit(f'Expected schedule text not found: {old}')
+              html = html.replace(old, new)
+
+          path.write_text(html, encoding='utf-8')
+          PY
+      - name: Commit corrections
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Use exact Pooja times and Aanjaneyar in Tamil"
+          git push origin HEAD:main
