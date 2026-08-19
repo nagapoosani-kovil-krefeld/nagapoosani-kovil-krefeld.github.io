@@ -14,7 +14,7 @@ document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
 const tamilText = {
   "Zum Inhalt springen": "உள்ளடக்கத்திற்குச் செல்லவும்",
-  "Tempel Krefeld": "ஆலயம் கிறிபில்ட்",
+  "Tempel Krefeld": "கிறிபில்ட் ஆலயம்",
   "Unser Tempel": "எமது ஆலயம்",
   "Poojas": "பூஜைகள்",
   "Termine": "நேர அட்டவணை",
@@ -25,10 +25,10 @@ const tamilText = {
   "வணக்கம் · Herzlich willkommen": "வணக்கம் · அன்புடன் வரவேற்கிறோம்",
   "Sri Nagapoosani Ambaal Tempel Krefeld": "ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் கிறிபில்ட்",
   "Ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.": "இறைநம்பிக்கையும், தமிழ் இந்து மரபும், சமூக ஒற்றுமையும் இணையும் திருத்தலம்.",
-  "Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்தை அறிந்துகொள்ளவும், பூஜைகளில் கலந்துகொள்ளவும், எமது சமூகத்தின் ஆன்மீக அனுபவத்தைப் பகிர்ந்துகொள்ளவும் அனைவரையும் அன்புடன் வரவேற்கிறோம்.",
-  "Unseren Tempel entdecken": "எமது ஆலயத்தை அறிந்துகொள்ளுங்கள்",
-  "Kontakt & Anfahrt": "தொடர்பு மற்றும் வழிகாட்டல்",
-  "Möge ihr Segen allen zuteilwerden.": "அம்பாளின் அருள் அனைவருக்கும் கிடைக்கட்டும்.",
+  "Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்திற்கு வருகை தந்து, பூஜைகளில் கலந்து கொண்டு, எமது ஆன்மீக மரபையும் சமூக உறவையும் அனுபவிக்க அனைவரையும் அன்புடன் அழைக்கிறோம்.",
+  "Unseren Tempel entdecken": "எமது ஆலயத்தைப் பற்றி அறிய",
+  "Kontakt & Anfahrt": "தொடர்பு · வருகை வழி",
+  "Möge ihr Segen allen zuteilwerden.": "அம்பாளின் திருவருள் அனைவருக்கும் கிடைக்கட்டும்.",
   "Mehr entdecken": "மேலும் அறிய",
   "Glaube · Tradition · Gemeinschaft": "நம்பிக்கை · பாரம்பரியம் · சமூகம்",
   "Unser Tempel und Sri Nagapoosani Ambaal": "எமது ஆலயமும் ஸ்ரீ நாகபூசணி அம்பாளும்",
