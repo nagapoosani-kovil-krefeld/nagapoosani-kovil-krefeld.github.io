@@ -1,0 +1,102 @@
+name: Update weekly Pooja schedule
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Update schedule and translations
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          html = index.read_text(encoding='utf-8')
+
+          old_schedule = '''            <div class="schedule-row"><strong>Montag</strong><span>17:00 Uhr</span><span>17:30–18:00 Uhr</span></div>
+            <div class="schedule-row holy-day"><strong>Dienstag</strong><span>17:00 Uhr</span><span>ab 18:00 Uhr</span></div>
+            <div class="schedule-row"><strong>Mittwoch</strong><span>17:00 Uhr</span><span>17:30–18:00 Uhr</span></div>
+            <div class="schedule-row"><strong>Donnerstag</strong><span>17:00 Uhr</span><span>17:30–18:00 Uhr</span></div>
+            <div class="schedule-row holy-day"><strong>Freitag</strong><span>17:00 Uhr</span><span>ab 18:00 Uhr</span></div>
+            <p class="schedule-note">Die Zeiten für Samstag und Sonntag werden nach der Bestätigung durch unseren Priester ergänzt.</p>'''
+
+          new_schedule = '''            <div class="schedule-row"><strong>Montag</strong><span>17:30 Uhr</span><span>im Anschluss</span></div>
+            <div class="schedule-row holy-day"><strong>Dienstag</strong><span>17:00 Uhr</span><span>ab 18:00 Uhr</span></div>
+            <div class="schedule-row"><strong>Mittwoch</strong><span>17:30 Uhr</span><span>im Anschluss</span></div>
+            <div class="schedule-row"><strong>Donnerstag</strong><span>17:30 Uhr</span><span>im Anschluss</span></div>
+            <div class="schedule-row holy-day"><strong>Freitag</strong><span>17:00 Uhr</span><span>ab 18:00 Uhr</span></div>
+            <div class="schedule-row holy-day"><strong>Samstag</strong><span>11:30 Uhr</span><span>Hanuman Pooja · 12:00 Uhr</span></div>
+            <div class="schedule-row"><strong>Sonntag</strong><span>11:30 Uhr</span><span>12:00 Uhr</span></div>'''
+
+          if old_schedule not in html:
+              raise SystemExit('Expected schedule block not found')
+          html = html.replace(old_schedule, new_schedule, 1)
+          index.write_text(html, encoding='utf-8')
+
+          script = Path('script.js')
+          js = script.read_text(encoding='utf-8')
+
+          ta_old = '''  "Freitag": "வெள்ளிக்கிழமை",
+  "17:00 Uhr": "17:00 மணி",
+  "17:30–18:00 Uhr": "17:30–18:00 மணி",
+  "ab 18:00 Uhr": "18:00 மணி முதல்",'''
+          ta_new = '''  "Freitag": "வெள்ளிக்கிழமை",
+  "Samstag": "சனிக்கிழமை",
+  "Sonntag": "ஞாயிற்றுக்கிழமை",
+  "17:00 Uhr": "17:00 மணி",
+  "17:30 Uhr": "17:30 மணி",
+  "17:30–18:00 Uhr": "17:30–18:00 மணி",
+  "11:30 Uhr": "11:30 மணி",
+  "12:00 Uhr": "12:00 மணி",
+  "im Anschluss": "அதனைத் தொடர்ந்து",
+  "Hanuman Pooja · 12:00 Uhr": "ஹனுமான் பூஜை · 12:00 மணி",
+  "ab 18:00 Uhr": "18:00 மணி முதல்",'''
+
+          en_old = '''  "Freitag": "Friday",
+  "17:00 Uhr": "5:00 PM",
+  "17:30–18:00 Uhr": "5:30–6:00 PM",
+  "ab 18:00 Uhr": "from 6:00 PM",'''
+          en_new = '''  "Freitag": "Friday",
+  "Samstag": "Saturday",
+  "Sonntag": "Sunday",
+  "17:00 Uhr": "5:00 PM",
+  "17:30 Uhr": "5:30 PM",
+  "17:30–18:00 Uhr": "5:30–6:00 PM",
+  "11:30 Uhr": "11:30 AM",
+  "12:00 Uhr": "12:00 PM",
+  "im Anschluss": "afterwards",
+  "Hanuman Pooja · 12:00 Uhr": "Hanuman Pooja · 12:00 PM",
+  "ab 18:00 Uhr": "from 6:00 PM",'''
+
+          if ta_old not in js:
+              raise SystemExit('Tamil schedule translation block not found')
+          if en_old not in js:
+              raise SystemExit('English schedule translation block not found')
+
+          js = js.replace(ta_old, ta_new, 1)
+          js = js.replace(en_old, en_new, 1)
+          script.write_text(js, encoding='utf-8')
+          PY
+
+      - name: Commit schedule update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js
+          git diff --cached --quiet && exit 0
+          git commit -m "Apply priest-confirmed weekly Pooja times"
+          git push origin HEAD:main
