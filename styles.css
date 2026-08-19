@@ -1,14 +1,21 @@
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("fonts/cormorant-garamond-latin.woff2") format("woff2");
+  font-family: "Cinzel";
+  src: url("fonts/cinzel-variable.ttf") format("truetype");
   font-style: normal;
-  font-weight: 500 700;
+  font-weight: 400 900;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("fonts/inter-latin.woff2") format("woff2");
+  font-family: "Lora";
+  src: url("fonts/lora-variable.ttf") format("truetype");
   font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/lora-italic-variable.ttf") format("truetype");
+  font-style: italic;
   font-weight: 400 700;
   font-display: swap;
 }
@@ -40,7 +47,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Lora", Georgia, serif;
   -webkit-font-smoothing: antialiased;
 }
 body::selection { background: var(--gold-light); color: var(--deep); }
@@ -74,7 +81,7 @@ button { font: inherit; }
   border-radius: 50%; box-shadow: 0 6px 20px rgba(10, 44, 41, 0.1);
 }
 .brand-name { display: flex; flex-direction: column; }
-.brand-name strong { font: 700 17px/1.1 "Cormorant Garamond", serif; letter-spacing: 0.02em; }
+.brand-name strong { font: 600 15px/1.15 "Cinzel", serif; letter-spacing: 0.015em; }
 .brand-name small { margin-top: 4px; color: var(--muted); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 2vw, 32px); }
 .desktop-nav a { position: relative; font-size: 13px; font-weight: 600; }
@@ -122,15 +129,15 @@ button { font: inherit; }
   margin: 0 0 22px; color: var(--red); font-size: 12px; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
 }
-.eyebrow { font-family: "Noto Sans Tamil", "Inter", sans-serif; }
+.eyebrow { font-family: "Noto Sans Tamil", "Lora", serif; }
 h1, h2, h3 { margin: 0; }
 h1 {
-  max-width: 690px; font: 600 clamp(57px, 6.2vw, 96px)/0.9 "Cormorant Garamond", serif;
-  letter-spacing: -0.04em; text-wrap: balance;
+  max-width: 690px; font: 600 clamp(49px, 5.4vw, 82px)/1.02 "Cinzel", serif;
+  letter-spacing: -0.025em; text-wrap: balance;
 }
 .hero-lead {
   max-width: 620px; margin: 29px 0 0; color: var(--deep-soft);
-  font: 600 clamp(20px, 1.8vw, 28px)/1.35 "Cormorant Garamond", serif;
+  font: 600 clamp(19px, 1.7vw, 26px)/1.42 "Lora", Georgia, serif;
 }
 .hero-detail { max-width: 580px; margin: 18px 0 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -165,12 +172,12 @@ h1 {
   color: var(--gold-light); font-size: 8px;
 }
 .image-caption span {
-  font: 700 27px/1.05 "Cormorant Garamond", serif;
+  font: 600 24px/1.15 "Cinzel", serif;
   letter-spacing: 0.025em; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 .image-caption small {
   margin-top: 8px; color: var(--gold-light);
-  font: italic 600 15px/1.35 "Cormorant Garamond", serif; letter-spacing: 0.035em;
+  font: italic 600 15px/1.35 "Lora", Georgia, serif; letter-spacing: 0.025em;
 }
 .scroll-cue {
   position: absolute; z-index: 3; left: 50%; bottom: 24px; transform: translateX(-50%);
@@ -182,7 +189,7 @@ h1 {
 .section { padding: 110px 0; scroll-margin-top: 92px; }
 .section-inner { width: min(1180px, calc(100% - 56px)); margin: 0 auto; }
 .split { display: grid; grid-template-columns: 1fr 0.9fr; gap: 80px; align-items: end; }
-.section h2 { font: 600 clamp(39px, 4.5vw, 65px)/1 "Cormorant Garamond", serif; letter-spacing: -0.025em; }
+.section h2 { font: 600 clamp(36px, 4.1vw, 58px)/1.08 "Cinzel", serif; letter-spacing: -0.018em; }
 .section-intro, .narrow > p { margin: 0; color: var(--muted); line-height: 1.8; }
 .section-intro p { margin: 0; }
 .section-intro p + p { margin-top: 18px; }
@@ -191,7 +198,7 @@ h1 {
 .placeholder-grid.three { grid-template-columns: repeat(3, 1fr); }
 .placeholder-grid article { padding: 32px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.52); }
 .pooja-accent { display: block; width: 42px; height: 2px; background: var(--gold); }
-.placeholder-grid h3 { margin-top: 30px; font: 600 25px "Cormorant Garamond", serif; }
+.placeholder-grid h3 { margin-top: 30px; font: 600 22px/1.2 "Cinzel", serif; letter-spacing: 0.01em; }
 .placeholder-grid p { color: var(--muted); font-size: 13px; }
 .placeholder-grid p + p { margin-top: 14px; }
 .placeholder-grid strong { color: var(--ink); }
@@ -213,8 +220,16 @@ h1 {
 }
 .schedule-row { font-size: 13px; }
 .schedule-row span { color: var(--muted); }
-.schedule-row.holy-day { color: var(--red); background: rgba(152, 46, 45, 0.035); }
-.schedule-row.holy-day span { color: var(--red); font-weight: 600; }
+.schedule-row.holy-day {
+  color: var(--deep); padding-left: 16px;
+  background: linear-gradient(90deg, rgba(225, 195, 129, 0.3), rgba(225, 195, 129, 0.1));
+  box-shadow: inset 4px 0 0 var(--gold);
+}
+.schedule-row.holy-day strong::after {
+  content: "✦ Heiliger Tag"; display: block; margin-top: 4px;
+  color: #80601b; font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.schedule-row.holy-day span { color: var(--deep); font-weight: 700; }
 .schedule-note { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .section-dark { color: white; background: var(--deep); }
 .section-dark .section-kicker { color: var(--gold-light); }
@@ -238,7 +253,7 @@ h1 {
 .gallery-card img.festtage-gallery { object-position: 50% 47%; }
 .gallery-card figcaption { padding: 34px 32px 38px; color: white; }
 .gallery-card figcaption > span { color: var(--gold-light); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.gallery-card h3 { margin: 13px 0 15px; font: 600 30px/1.08 "Cormorant Garamond", serif; }
+.gallery-card h3 { margin: 13px 0 15px; font: 600 27px/1.16 "Cinzel", serif; }
 .gallery-card p { margin: 0; color: rgba(255, 255, 255, 0.7); font-size: 13px; line-height: 1.75; }
 .vision-section { color: white; text-align: center; background: linear-gradient(rgba(13, 43, 42, 0.94), rgba(13, 43, 42, 0.94)), #0d2b2a; }
 .narrow { max-width: 820px; }
@@ -276,8 +291,8 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
 .legal-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: end; gap: 70px; margin-bottom: 46px; }
 .legal-lead { margin: 0 0 10px; color: var(--muted); line-height: 1.75; }
 .legal-section { padding: 30px 0; border-top: 1px solid var(--line); }
-.legal-section h2 { margin-bottom: 18px; font: 600 30px/1.15 "Cormorant Garamond", serif; }
-.legal-section h3 { margin: 24px 0 10px; font: 600 21px/1.2 "Cormorant Garamond", serif; }
+.legal-section h2 { margin-bottom: 18px; font: 600 27px/1.2 "Cinzel", serif; }
+.legal-section h3 { margin: 24px 0 10px; font: 600 19px/1.25 "Cinzel", serif; }
 .legal-section p, .legal-section li, .legal-address { color: var(--muted); font-size: 14px; line-height: 1.8; }
 .legal-section p { margin: 0 0 14px; }
 .legal-section ul { margin: 0; padding-left: 20px; }
