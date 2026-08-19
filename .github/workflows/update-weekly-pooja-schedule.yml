@@ -1,13 +1,54 @@
-name: Archived schedule helper
+name: Update Tamil schedule badge labels
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  noop:
+  update:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Temporary schedule helper is disabled."
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add schedule label overrides
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('styles.css')
+          css = path.read_text(encoding='utf-8')
+          marker = '/* Tamil schedule badge labels */'
+          block = r'''
+
+/* Tamil schedule badge labels */
+html[lang="ta"] .schedule-row.holy-day strong::after {
+  content: "✦ விசேட வழிபாட்டு நாள்";
+}
+.schedule-panel .schedule-row.holy-day:nth-of-type(7) strong::after {
+  content: "✦ Hanuman Pooja";
+}
+html[lang="ta"] .schedule-panel .schedule-row.holy-day:nth-of-type(7) strong::after {
+  content: "✦ ஆஞ்சநேயர் பூஜை";
+}
+html[lang="en"] .schedule-panel .schedule-row.holy-day:nth-of-type(7) strong::after {
+  content: "✦ Hanuman Pooja";
+}
+'''
+          if marker not in css:
+              path.write_text(css.rstrip() + block + '\n', encoding='utf-8')
+          PY
+      - name: Commit label update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Improve Tamil schedule day labels"
+          git push origin HEAD:main
