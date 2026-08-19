@@ -79,6 +79,7 @@ const tamilText = {
   "Momente des Glaubens, der Hingabe und unserer lebendigen Tempelgemeinschaft.": "நம்பிக்கை, பக்தி மற்றும் எமது உயிரோட்டமான ஆலயச் சமூகத்தின் அழகிய தருணங்கள்.",
   "Weitere Momente aus unserem Tempel": "எமது ஆலயத்தின் மேலும் சில தருணங்கள்",
   "Moolasthanam": "மூலஸ்தானம்",
+  "Sri Nagapoosani Ambaal im Moolasthanam": "சந்தனக்காப்பு அலங்காரத்தில் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels": "ஆலயத்திற்குள் வந்தவுடன் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "ஆலயத்திற்குள் நுழையும் அடியவர்கள் முதலில் இந்த அம்பாளைத் தரிசிப்பார்கள். இங்குதான் அபிஷேகம் நடைபெறும்.",
   "Besondere Festtage": "விசேட திருவிழாக்கள்",
