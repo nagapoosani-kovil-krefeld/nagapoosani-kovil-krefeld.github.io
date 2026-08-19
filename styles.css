@@ -243,16 +243,18 @@ h1 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.schedule-row { font-size: 13px; }
+.schedule-row { min-height: 52px; font-size: 13px; }
 .schedule-row span { color: var(--muted); }
 .schedule-row.holy-day {
   color: var(--deep);
   background: linear-gradient(90deg, rgba(225, 195, 129, 0.3), rgba(225, 195, 129, 0.1));
   box-shadow: inset 4px 0 0 var(--gold);
 }
+.schedule-row.holy-day strong { display: flex; align-items: center; gap: 7px; }
 .schedule-row.holy-day strong::after {
-  content: "✦ Heiliger Tag"; display: block; margin-top: 4px;
-  color: #80601b; font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  content: "✦ Heiliger Tag"; display: inline-flex; padding: 3px 5px; white-space: nowrap;
+  color: #80601b; border: 1px solid rgba(198, 155, 75, 0.42); background: rgba(255, 253, 248, 0.52);
+  font-size: 7px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
 }
 .schedule-row.holy-day span { color: var(--deep); font-weight: 700; }
 .schedule-note { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
@@ -428,6 +430,8 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .section-inner { width: calc(100% - 28px); }
   .visit-list { grid-template-columns: 1fr; }
   .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.9fr 1.2fr; gap: 8px; font-size: 11px; }
+  .schedule-row.holy-day strong { gap: 4px; }
+  .schedule-row.holy-day strong::after { content: "✦"; padding: 0; border: 0; background: transparent; font-size: 9px; }
   .legal-header { align-items: flex-start; padding: 16px 0; }
   .legal-header .brand-name { display: none; }
   .legal-overview .legal-card { padding: 25px 22px; }
