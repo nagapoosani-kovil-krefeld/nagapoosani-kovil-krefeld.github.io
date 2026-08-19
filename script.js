@@ -51,6 +51,7 @@ const tamilText = {
   "17:30–18:00 Uhr": "17:30–18:00 மணி",
   "ab 18:00 Uhr": "18:00 மணி முதல்",
   "Die Zeiten für Samstag und Sonntag werden nach der Bestätigung durch unseren Priester ergänzt.": "சனி மற்றும் ஞாயிற்றுக்கிழமை நேரங்கள் எமது ஆலயக் குருவின் உறுதிப்படுத்தலுக்குப் பின்னர் சேர்க்கப்படும்.",
+  "Aktuelle Ankündigungen (PDF)": "தற்போதைய அறிவிப்புகள் (PDF)",
   "Offen für alle": "அனைவருக்கும் திறந்தது",
   "Hinweise für den ersten Besuch": "முதல் வருகைக்கான வழிகாட்டல்கள்",
   "Niemand muss die Abläufe bereits kennen. Besucherinnen und Besucher können ruhig beobachten und respektvoll teilnehmen.": "ஆலய வழிபாட்டு முறைகளை முன்கூட்டியே அறிந்திருக்க வேண்டிய அவசியமில்லை. வருகையாளர்கள் அமைதியாகக் கவனித்து, மரியாதையுடன் கலந்துகொள்ளலாம்.",
