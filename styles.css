@@ -211,6 +211,7 @@ h1 {
 .section-inner { width: min(1180px, calc(100% - 56px)); margin: 0 auto; }
 .split { display: grid; grid-template-columns: 1fr 0.9fr; gap: 80px; align-items: end; }
 html[lang="ta"] .intro-section .split { align-items: start; }
+#termine .split { align-items: start; }
 .section h2 { font: 600 clamp(36px, 4.1vw, 58px)/1.08 "Cinzel", serif; letter-spacing: -0.018em; }
 .section h2::after {
   content: ""; display: block; width: 62px; height: 2px; margin-top: 20px;
