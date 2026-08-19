@@ -1,7 +1,6 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
-const languageNote = document.querySelector("[data-language-note]");
 const languageButtons = document.querySelectorAll("[data-language]");
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
@@ -73,7 +72,7 @@ const tamilText = {
   "Unsere gemeinsame Zukunft": "எமது கூட்டு எதிர்காலம்",
   "Die Vision eines eigenen Tempels": "சொந்த ஆலயத்திற்கான எமது கனவு",
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "எமது ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் தற்போது கிரேபில்ட் நகர மத்தியில் உள்ள ஒரு வாடகைக் கட்டிடத்தில் இயங்குகிறது. மையப்பகுதியில் இருப்பதால் ஆலயத்தை எளிதில் அடைய முடிகிறது. இருப்பினும் அருகில் வாகன நிறுத்துமிடங்கள் மிகவும் குறைவு. வளர்ந்து வரும் ஆலயச் சமூகத்தின் தேவைகளுக்கும் பெரிய சமய நிகழ்வுகளுக்கும் தற்போதைய இடமும் கட்டிட வசதிகளும் நீண்டகாலத்திற்கு பொருத்தமானவை அல்ல. இருந்தாலும் இந்த இடம் எமது சமூகத்திற்கு மிகவும் மதிப்புமிக்கதாகும்.",
-  "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிரெஃபெல்டில் பொருத்தமான நிலத்தை வாங்கி, அதில் எமக்கென ஒரு இந்து ஆலயத்தை அமைப்பதே எமது கனவு. புதிய ஆலயம் பூஜைகள், சமய விழாக்கள், தமிழ் இந்து பாரம்பரியம், கலாசாரச் சந்திப்புகள் மற்றும் எமது சமூகத்திற்கான கண்ணியமான, நிரந்தரமான இடமாக அமைய வேண்டும்.",
+  "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிரேபில்டில் பொருத்தமான நிலத்தை வாங்கி, அதில் எமக்கென ஒரு இந்து ஆலயத்தை அமைப்பதே எமது கனவு. புதிய ஆலயம் பூஜைகள், சமய விழாக்கள், தமிழ் இந்து பாரம்பரியம், கலாசாரச் சந்திப்புகள் மற்றும் எமது சமூகத்திற்கான கண்ணியமான, நிரந்தரமான இடமாக அமைய வேண்டும்.",
   "Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "இதன் மூலம் வருங்காலத் தலைமுறைகளுக்கும் எமது சமயமும் பாரம்பரியமும் பாதுகாக்கப்பட்டு பகிரப்படும் ஒரு நிலையான இடத்தை உருவாக்க விரும்புகிறோம். திட்டத்தின் அடுத்தடுத்த நடவடிக்கைகள் மற்றும் முன்னேற்றம் குறித்து வெளிப்படையாகத் தகவல் வழங்குவோம்.",
   "Besucht uns": "எம்மைச் சந்தியுங்கள்",
   "Kontakt und Anfahrt": "தொடர்பு மற்றும் வழிகாட்டல்",
@@ -84,6 +83,86 @@ const tamilText = {
   "Route öffnen": "வழித்தடத்தைத் திறக்கவும்",
   "Impressum": "சட்ட அறிவிப்பு",
   "Datenschutz": "தரவுப் பாதுகாப்பு"
+};
+
+const englishText = {
+  "Zum Inhalt springen": "Skip to content",
+  "Tempel Krefeld": "Temple Krefeld",
+  "Unser Tempel": "Our Temple",
+  "Poojas": "Poojas",
+  "Termine": "Schedule",
+  "Galerie": "Gallery",
+  "Zukunft": "Our Future",
+  "Kontakt": "Contact",
+  "Erster Besuch": "First Visit",
+  "வணக்கம் · Herzlich willkommen": "வணக்கம் · Welcome",
+  "Sri Nagapoosani Ambaal Tempel Krefeld": "Sri Nagapoosani Ambaal Temple Krefeld",
+  "Ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.": "A place of faith, Tamil Hindu tradition and community.",
+  "Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "We warmly welcome everyone to discover our temple, take part in Poojas and experience our community.",
+  "Unseren Tempel entdecken": "Discover Our Temple",
+  "Kontakt & Anfahrt": "Contact & Directions",
+  "Möge ihr Segen allen zuteilwerden.": "May her blessings be with everyone.",
+  "Mehr entdecken": "Discover More",
+  "Glaube · Tradition · Gemeinschaft": "Faith · Tradition · Community",
+  "Unser Tempel und Sri Nagapoosani Ambaal": "Our Temple and Sri Nagapoosani Ambaal",
+  "Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der tamilisch-hinduistischen Tradition und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. bietet der Tempel unserer Gemeinschaft einen gemeinsamen Ort für Poojas, religiöse Feste und kulturelles Leben. Auch Menschen, die unseren Glauben und unsere Tradition kennenlernen möchten, sind herzlich willkommen.": "The Sri Nagapoosani Ambaal Temple Krefeld is a place of prayer, Tamil Hindu tradition and gathering. Run by the Tamil Cultural Association Krefeld e.V., the temple provides our community with a shared place for Poojas, religious festivals and cultural life. Everyone who would like to learn about our faith and traditions is warmly welcome.",
+  "Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Sie wird von unserer Gemeinschaft als schützende und segenspendende Göttin verehrt. Durch Gebete, Poojas und gemeinsame Feste bewahren wir unsere Traditionen und geben sie an die nächste Generation weiter.": "At the heart of our temple is Sri Nagapoosani Ambaal. Our community worships her as a protective goddess who bestows her blessings. Through prayers, Poojas and shared festivals, we preserve our traditions and pass them on to the next generation.",
+  "Verstehen und teilnehmen": "Understand and Participate",
+  "Poojas einfach erklärt": "Poojas Simply Explained",
+  "Abhishekam": "Abhishekam",
+  "Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können bei jedem Abhishekam am Empfang für": "During Abhishekam, Sri Nagapoosani Ambaal is ritually bathed and worshipped. At every Abhishekam, devotees can purchase",
+  "2 € Milch erwerben": "milk for €2",
+  "und diese als Opfergabe bereitstellen.": "at reception and offer it to the goddess.",
+  "Bei der Übergabe der Milch können die Gläubigen ihre persönlichen Wünsche und Gebete vorbringen. Mit der Opfergabe verbinden sie die Hoffnung, dass Sri Nagapoosani Ambaal ihre Bitten erhört und ihnen ihren Segen schenkt.": "When presenting the milk, devotees may express their personal wishes and prayers. Through this offering, they hope that Sri Nagapoosani Ambaal will hear their requests and grant them her blessings.",
+  "Pooja": "Pooja",
+  "Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "The communal Pooja takes place after Abhishekam. The respective starting times can be found in the weekly schedule.",
+  "Besondere heilige Tage": "Special Holy Days",
+  "Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "Tuesday and Friday are considered special holy days at our temple. Abhishekam begins at 5:00 PM, followed by Pooja at 6:00 PM.",
+  "Gemeinsam feiern": "Worship Together",
+  "Pooja-Zeiten und Veranstaltungen": "Pooja Times and Events",
+  "Tag": "Day",
+  "Montag": "Monday",
+  "Dienstag": "Tuesday",
+  "Mittwoch": "Wednesday",
+  "Donnerstag": "Thursday",
+  "Freitag": "Friday",
+  "17:00 Uhr": "5:00 PM",
+  "17:30–18:00 Uhr": "5:30–6:00 PM",
+  "ab 18:00 Uhr": "from 6:00 PM",
+  "Die Zeiten für Samstag und Sonntag werden nach der Bestätigung durch unseren Priester ergänzt.": "The times for Saturday and Sunday will be added once they have been confirmed by our temple priest.",
+  "Aktuelle Ankündigungen": "Current Announcements",
+  "Monatliche Pooja-Übersicht als PDF": "Monthly Pooja Overview – PDF",
+  "Offen für alle": "Open to Everyone",
+  "Hinweise für den ersten Besuch": "Guidance for Your First Visit",
+  "Niemand muss die Abläufe bereits kennen. Besucherinnen und Besucher können ruhig beobachten und respektvoll teilnehmen.": "You do not need to be familiar with the rituals beforehand. Visitors are welcome to observe quietly and participate respectfully.",
+  "Alle Menschen sind herzlich willkommen – unabhängig von Herkunft oder Religion.": "Everyone is warmly welcome, regardless of their background or religion.",
+  "Bitte die Schuhe vor dem Betreten des Gebetsbereichs ausziehen.": "Please remove your shoes before entering the prayer area.",
+  "Bitte saubere und respektvolle Kleidung tragen.": "Please wear clean and respectful clothing.",
+  "Mobiltelefone während der Pooja lautlos stellen.": "Please set mobile phones to silent during Pooja.",
+  "Fotos und Videos nur nach vorheriger Erlaubnis aufnehmen.": "Please take photos and videos only with prior permission.",
+  "Bei Fragen hilft die Tempelverwaltung beziehungsweise der Empfang gerne weiter.": "If you have any questions, the temple administration or reception will be happy to assist you.",
+  "Einblicke": "A Glimpse Inside",
+  "Bildergalerie": "Photo Gallery",
+  "Moolasthanam": "Moolasthanam",
+  "Die Göttin am Eingang des Tempels": "The Goddess at the Temple Entrance",
+  "Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "Visitors see this form of the goddess upon entering the temple. This is where Abhishekam takes place.",
+  "Besondere Festtage": "Special Festival Days",
+  "Sri Nagapoosani Ambaal an Festtagen": "Sri Nagapoosani Ambaal on Festival Days",
+  "Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "This form of the goddess is carried in procession on special holy days, including during the Theer festival.",
+  "Unsere gemeinsame Zukunft": "Our Shared Future",
+  "Die Vision eines eigenen Tempels": "Our Vision for a Permanent Temple",
+  "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "Our Sri Nagapoosani Ambaal Temple is currently located in rented premises in central Krefeld. This makes the temple easy to reach, but parking nearby is limited. In the long term, the current premises and location are not suitable for the needs of our growing temple community or for larger religious events. Nevertheless, this place remains very valuable to our community.",
+  "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "Our vision is to purchase a suitable plot of land in Krefeld and build our own Hindu temple. The new temple will be a dignified and permanent home for Poojas, religious festivals, Tamil Hindu tradition, cultural exchange and our community.",
+  "Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "In this way, we aim to create a lasting place for future generations where our faith and traditions can be preserved and passed on. We will provide transparent updates about the next steps and the progress of the project.",
+  "Besucht uns": "Visit Us",
+  "Kontakt und Anfahrt": "Contact and Directions",
+  "Tamilischer Kulturverein Krefeld e.V.": "Tamil Cultural Association Krefeld e.V.",
+  "· Tempel": "· Temple",
+  "· Tempelverwalterin": "· Temple Administrator",
+  "· Tempelpriester": "· Temple Priest",
+  "Route öffnen": "Open Directions",
+  "Impressum": "Legal Notice",
+  "Datenschutz": "Privacy Policy"
 };
 
 const tamilAttributes = {
@@ -108,6 +187,28 @@ const tamilAttributes = {
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
 };
 
+const englishAttributes = {
+  "Zur Startseite": "Go to homepage",
+  "Logo des Sri Nagapoosani Ambaal Tempels Krefeld": "Logo of the Sri Nagapoosani Ambaal Temple Krefeld",
+  "Hauptnavigation": "Main navigation",
+  "Soziale Medien im Kopfbereich": "Social media in the header",
+  "Instagram öffnen": "Open Instagram",
+  "Facebook öffnen": "Open Facebook",
+  "YouTube öffnen": "Open YouTube",
+  "Sprachauswahl": "Language selection",
+  "Menü öffnen": "Open menu",
+  "Mobile Navigation": "Mobile navigation",
+  "Soziale Medien": "Social media",
+  "Darstellung von Sri Nagapoosani Ambaal": "Depiction of Sri Nagapoosani Ambaal",
+  "Sri Nagapoosani Ambaal mit der schützenden Nagagestalt": "Sri Nagapoosani Ambaal with the protective form of the Naga",
+  "Zum nächsten Abschnitt": "Go to the next section",
+  "Regelmäßiger Wochenplan": "Regular weekly schedule",
+  "Aktuelle Ankündigungen als PDF öffnen": "Open current announcements as a PDF",
+  "Moolasthanam der Sri Nagapoosani Ambaal im Tempel Krefeld": "Moolasthanam of Sri Nagapoosani Ambaal at the Krefeld temple",
+  "Sri Nagapoosani Ambaal während eines besonderen Festtages im Tempel Krefeld": "Sri Nagapoosani Ambaal during a special festival day at the Krefeld temple",
+  "Rechtliche Hinweise": "Legal information"
+};
+
 const textNodes = [];
 const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
   acceptNode(node) {
@@ -130,17 +231,20 @@ const originalAttributes = new WeakMap(
 
 const pageTitles = {
   de: "Sri Nagapoosani Ambaal Tempel Krefeld",
-  ta: "ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் கிரேபில்ட்"
+  ta: "ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் கிரேபில்ட்",
+  en: "Sri Nagapoosani Ambaal Temple Krefeld"
 };
 const pageDescriptions = {
   de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.",
-  ta: "கிரேபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் – நம்பிக்கை, தமிழ் இந்து பாரம்பரியம் மற்றும் சமூக ஒற்றுமைக்கான ஓர் இடம்."
+  ta: "கிரேபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் – நம்பிக்கை, தமிழ் இந்து பாரம்பரியம் மற்றும் சமூக ஒற்றுமைக்கான ஓர் இடம்.",
+  en: "Sri Nagapoosani Ambaal Temple Krefeld – a place of faith, Tamil Hindu tradition and community."
 };
 
 function replaceTextNode(node, language) {
   const source = originalText.get(node);
   const key = source.trim();
-  const replacement = language === "ta" ? tamilText[key] : key;
+  const dictionaries = { ta: tamilText, en: englishText };
+  const replacement = language === "de" ? key : (dictionaries[language]?.[key] || key);
   if (!replacement) return;
   const leading = source.match(/^\s*/)?.[0] || "";
   const trailing = source.match(/\s*$/)?.[0] || "";
@@ -148,15 +252,16 @@ function replaceTextNode(node, language) {
 }
 
 function applyLanguage(language) {
-  const selected = language === "ta" ? "ta" : "de";
+  const selected = ["de", "ta", "en"].includes(language) ? language : "de";
   document.documentElement.lang = selected;
   document.documentElement.dataset.language = selected;
   textNodes.forEach((node) => replaceTextNode(node, selected));
 
   attributedElements.forEach((element) => {
     const attributes = originalAttributes.get(element);
+    const dictionaries = { ta: tamilAttributes, en: englishAttributes };
     Object.entries(attributes).forEach(([name, source]) => {
-      element.setAttribute(name, selected === "ta" ? (tamilAttributes[source] || source) : source);
+      element.setAttribute(name, selected === "de" ? source : (dictionaries[selected]?.[source] || source));
     });
   });
 
@@ -190,17 +295,6 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.language));
-});
-
-document.querySelectorAll("[data-language-pending]").forEach((button) => {
-  button.addEventListener("click", () => {
-    languageNote.textContent = document.documentElement.lang === "ta"
-      ? "ஆங்கில மொழிபெயர்ப்பு பின்னர் செயல்படுத்தப்படும்."
-      : "Englisch wird nach Freigabe der deutschen Texte aktiviert.";
-    languageNote.classList.add("visible");
-    window.clearTimeout(window.languageNoteTimer);
-    window.languageNoteTimer = window.setTimeout(() => languageNote.classList.remove("visible"), 3200);
-  });
 });
 
 let storedLanguage = "de";
