@@ -248,10 +248,11 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
 }
 .legal-header .brand img { width: 64px; height: 64px; }
 .back-link { color: var(--red); font-size: 12px; font-weight: 700; }
-.legal-main { width: min(840px, calc(100% - 56px)); margin: 0 auto; padding: 80px 0 110px; }
+.legal-main { width: min(1040px, calc(100% - 56px)); margin: 0 auto; padding: 70px 0 100px; }
 .legal-main .section-kicker { margin-bottom: 16px; }
 .legal-main h1 { max-width: none; font-size: clamp(52px, 7vw, 82px); }
-.legal-lead { margin: 22px 0 56px; color: var(--muted); line-height: 1.75; }
+.legal-hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: end; gap: 70px; margin-bottom: 46px; }
+.legal-lead { margin: 0 0 10px; color: var(--muted); line-height: 1.75; }
 .legal-section { padding: 30px 0; border-top: 1px solid var(--line); }
 .legal-section h2 { margin-bottom: 18px; font: 600 30px/1.15 "Cormorant Garamond", serif; }
 .legal-section h3 { margin: 24px 0 10px; font: 600 21px/1.2 "Cormorant Garamond", serif; }
@@ -262,6 +263,26 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
 .legal-address strong { color: var(--ink); }
 .legal-section a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
 .legal-footer { margin-top: 0; }
+.legal-overview { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.legal-overview .legal-card {
+  min-height: 190px; padding: 30px 32px; border: 1px solid var(--line); border-top: 3px solid var(--gold);
+  background: linear-gradient(145deg, rgba(249, 242, 229, 0.82), rgba(255, 253, 248, 0.96));
+}
+.legal-overview .legal-card-wide { grid-column: 1 / -1; min-height: 0; }
+.legal-overview .legal-card-wide:not(.legal-contact-card) {
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 46px; align-items: start;
+}
+.legal-overview .legal-card h2 { margin: 0 0 20px; font-size: 27px; }
+.legal-overview .legal-card-wide:not(.legal-contact-card) h2 { margin-bottom: 0; }
+.legal-overview .legal-card p { margin-bottom: 0; }
+.legal-details { margin: 0; }
+.legal-details > div { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 18px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.legal-details > div:first-child { padding-top: 0; }
+.legal-details > div:last-child { padding-bottom: 0; border-bottom: 0; }
+.legal-details dt { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.legal-details dd { min-width: 0; margin: 0; color: var(--ink); font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+.legal-contact-card { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: 46px; align-items: start; }
+.legal-contact-card h2 { margin-bottom: 0 !important; }
 
 @media (max-width: 1180px) {
   .desktop-nav { display: none; }
@@ -301,6 +322,12 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .legal-header { width: calc(100% - 36px); }
   .legal-header .brand-name { display: flex; }
   .legal-main { width: calc(100% - 36px); padding: 60px 0 80px; }
+  .legal-hero { grid-template-columns: 1fr; gap: 16px; margin-bottom: 34px; }
+  .legal-lead { margin-bottom: 0; }
+  .legal-overview { grid-template-columns: 1fr; }
+  .legal-overview .legal-card, .legal-overview .legal-card-wide { grid-column: auto; min-height: 0; }
+  .legal-overview .legal-card-wide:not(.legal-contact-card), .legal-contact-card { grid-template-columns: 1fr; gap: 18px; }
+  .legal-overview .legal-card-wide:not(.legal-contact-card) h2, .legal-contact-card h2 { margin-bottom: 0; }
 }
 
 @media (max-width: 430px) {
@@ -317,6 +344,8 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.9fr 1.2fr; gap: 8px; font-size: 11px; }
   .legal-header { align-items: flex-start; padding: 16px 0; }
   .legal-header .brand-name { display: none; }
+  .legal-overview .legal-card { padding: 25px 22px; }
+  .legal-details > div { grid-template-columns: 1fr; gap: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
