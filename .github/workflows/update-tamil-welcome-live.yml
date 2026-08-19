@@ -1,0 +1,39 @@
+name: Update Tamil welcome live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-tamil-welcome-live.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update approved Tamil welcome sentence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          old = '"Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்திற்கு வருகை தந்து, பூஜைகளில் கலந்து கொண்டு, எமது ஆன்மீக மரபையும் சமூக உறவையும் அனுபவிக்க அனைவரையும் அன்புடன் அழைக்கிறோம்."'
+          new = '"Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்திற்கு வருகை தந்து, ஸ்ரீ நாகபூசணி அம்பாளை தரிசித்து, பக்தியுடன் வழிபட்டு திருவருள் பெற அனைவரையும் அன்போடு வரவேற்கின்றோம்."'
+          if old not in s:
+              raise SystemExit('Expected Tamil welcome sentence not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit live Tamil welcome update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git diff --cached --quiet || git commit -m "Update Tamil welcome sentence"
+          git push origin main
