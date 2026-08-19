@@ -2,6 +2,13 @@ const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const languageButtons = document.querySelectorAll("[data-language]");
+const galleryRail = document.querySelector("[data-gallery-rail]");
+const galleryItems = [...document.querySelectorAll("[data-gallery-item]")];
+const galleryLightbox = document.querySelector("[data-gallery-lightbox]");
+const lightboxImage = document.querySelector("[data-lightbox-image]");
+const lightboxCaption = document.querySelector("[data-lightbox-caption]");
+const lightboxCounter = document.querySelector("[data-lightbox-counter]");
+let currentGalleryIndex = 0;
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
 
@@ -38,6 +45,12 @@ const tamilText = {
   "Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "அபிஷேகத்தைத் தொடர்ந்து கூட்டுப் பூஜை நடைபெறும். ஒவ்வொரு நாளுக்குமான ஆரம்ப நேரத்தை வார அட்டவணையில் காணலாம்.",
   "Besondere heilige Tage": "விசேட புனித நாட்கள்",
   "Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "செவ்வாய்க்கிழமையும் வெள்ளிக்கிழமையும் எமது ஆலயத்தில் விசேட புனித நாட்களாகக் கருதப்படுகின்றன. அபிஷேகம் 17:00 மணிக்கும், அதனைத் தொடர்ந்து பூஜை 18:00 மணிக்கும் ஆரம்பமாகும்.",
+  "Persönliche Gebete · Opfergaben": "தனிப்பட்ட பிரார்த்தனைகள் · காணிக்கைகள்",
+  "Archanai – ein persönliches Gebet an Ambaal": "அர்ச்சனை – அம்பாளிடம் ஒரு தனிப்பட்ட பிரார்த்தனை",
+  "Eine Archanai ist ein besonderer Moment der Hingabe an Sri Nagapoosani Ambaal. Gläubige können ihre Wünsche, Sorgen und ihren Dank vertrauensvoll vor Ambaal bringen und für sich und ihre Familie um Schutz, Kraft und Segen bitten.": "அர்ச்சனை என்பது ஸ்ரீ நாகபூசணி அம்பாளிடம் பக்தியுடன் ஒன்றிணையும் ஒரு விசேட தருணமாகும். அடியவர்கள் தங்களது விருப்பங்கள், கவலைகள் மற்றும் நன்றியை நம்பிக்கையுடன் அம்பாளிடம் சமர்ப்பித்து, தங்களுக்கும் தங்கள் குடும்பத்தினருக்கும் பாதுகாப்பு, வலிமை மற்றும் அருளை வேண்டலாம்.",
+  "In der Hoffnung auf Ambaals Gnade werden die persönlichen Anliegen in die Verehrung eingebracht. Verschiedene Formen der Archanai können direkt am Empfang ausgewählt werden.": "அம்பாளின் அருளை நம்பி, தனிப்பட்ட வேண்டுதல்கள் வழிபாட்டில் இணைக்கப்படுகின்றன. பல்வேறு வகையான அர்ச்சனைகளை வரவேற்புப் பகுதியில் நேரடியாகத் தேர்ந்தெடுக்கலாம்.",
+  "Mit Vertrauen und Hingabe": "நம்பிக்கையுடனும் பக்தியுடனும்",
+  "Am Empfang erhältlich": "வரவேற்புப் பகுதியில் பெறலாம்",
   "Gemeinsam feiern": "ஒன்றிணைந்து வழிபடுவோம்",
   "Pooja-Zeiten und Veranstaltungen": "பூஜை நேரங்களும் நிகழ்வுகளும்",
   "Tag": "நாள்",
@@ -63,12 +76,20 @@ const tamilText = {
   "Bei Fragen hilft die Tempelverwaltung beziehungsweise der Empfang gerne weiter.": "கேள்விகள் இருந்தால் ஆலய நிர்வாகத்தையோ வரவேற்புப் பகுதியையோ அணுகலாம்.",
   "Einblicke": "ஆலயத் தரிசனங்கள்",
   "Bildergalerie": "படத்தொகுப்பு",
+  "Momente des Glaubens, der Hingabe und unserer lebendigen Tempelgemeinschaft.": "நம்பிக்கை, பக்தி மற்றும் எமது உயிரோட்டமான ஆலயச் சமூகத்தின் அழகிய தருணங்கள்.",
+  "Weitere Momente aus unserem Tempel": "எமது ஆலயத்தின் மேலும் சில தருணங்கள்",
   "Moolasthanam": "மூலஸ்தானம்",
   "Die Göttin am Eingang des Tempels": "ஆலய நுழைவில் அருள்பாலிக்கும் அம்பாள்",
   "Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "ஆலயத்திற்குள் நுழையும் அடியவர்கள் முதலில் இந்த அம்பாளைத் தரிசிப்பார்கள். இங்குதான் அபிஷேகம் நடைபெறும்.",
   "Besondere Festtage": "விசேட திருவிழாக்கள்",
   "Sri Nagapoosani Ambaal an Festtagen": "திருவிழாக்களில் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "விசேட புனித நாட்களிலும் தேர்த்திருவிழா உள்ளிட்ட நிகழ்வுகளிலும் இந்த அம்பாள் திருவுருவம் பவனியாக எடுத்துச் செல்லப்படும்.",
+  "Ambaal im Festschmuck": "திருவிழா அலங்காரத்தில் அம்பாள்",
+  "Pooja im Tempel": "ஆலயத்தில் பூஜை",
+  "Deepa Aradhanai": "தீபாராதனை",
+  "Festliche Verehrung": "விசேட திருவிழா வழிபாடு",
+  "Traditionelle Tempelmusik": "பாரம்பரிய ஆலய இசை",
+  "Gemeinschaft am Festtag": "திருவிழாவில் எமது சமூகம்",
   "Unsere gemeinsame Zukunft": "எமது கூட்டு எதிர்காலம்",
   "Die Vision eines eigenen Tempels": "சொந்த ஆலயத்திற்கான எமது கனவு",
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "எமது ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் தற்போது கிரேபில்ட் நகர மத்தியில் உள்ள ஒரு வாடகைக் கட்டிடத்தில் இயங்குகிறது. மையப்பகுதியில் இருப்பதால் ஆலயத்தை எளிதில் அடைய முடிகிறது. இருப்பினும் அருகில் வாகன நிறுத்துமிடங்கள் மிகவும் குறைவு. வளர்ந்து வரும் ஆலயச் சமூகத்தின் தேவைகளுக்கும் பெரிய சமய நிகழ்வுகளுக்கும் தற்போதைய இடமும் கட்டிட வசதிகளும் நீண்டகாலத்திற்கு பொருத்தமானவை அல்ல. இருந்தாலும் இந்த இடம் எமது சமூகத்திற்கு மிகவும் மதிப்புமிக்கதாகும்.",
@@ -118,6 +139,12 @@ const englishText = {
   "Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "The communal Pooja takes place after Abhishekam. The respective starting times can be found in the weekly schedule.",
   "Besondere heilige Tage": "Special Holy Days",
   "Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "Tuesday and Friday are considered special holy days at our temple. Abhishekam begins at 5:00 PM, followed by Pooja at 6:00 PM.",
+  "Persönliche Gebete · Opfergaben": "Personal Prayers · Offerings",
+  "Archanai – ein persönliches Gebet an Ambaal": "Archanai – a Personal Prayer to Ambaal",
+  "Eine Archanai ist ein besonderer Moment der Hingabe an Sri Nagapoosani Ambaal. Gläubige können ihre Wünsche, Sorgen und ihren Dank vertrauensvoll vor Ambaal bringen und für sich und ihre Familie um Schutz, Kraft und Segen bitten.": "An Archanai is a special moment of devotion to Sri Nagapoosani Ambaal. Devotees can entrust their wishes, worries and gratitude to Ambaal and pray for protection, strength and blessings for themselves and their families.",
+  "In der Hoffnung auf Ambaals Gnade werden die persönlichen Anliegen in die Verehrung eingebracht. Verschiedene Formen der Archanai können direkt am Empfang ausgewählt werden.": "With hope in Ambaal’s grace, personal intentions are included in the worship. Different forms of Archanai can be selected directly at reception.",
+  "Mit Vertrauen und Hingabe": "With Trust and Devotion",
+  "Am Empfang erhältlich": "Available at Reception",
   "Gemeinsam feiern": "Worship Together",
   "Pooja-Zeiten und Veranstaltungen": "Pooja Times and Events",
   "Tag": "Day",
@@ -143,12 +170,20 @@ const englishText = {
   "Bei Fragen hilft die Tempelverwaltung beziehungsweise der Empfang gerne weiter.": "If you have any questions, the temple administration or reception will be happy to assist you.",
   "Einblicke": "A Glimpse Inside",
   "Bildergalerie": "Photo Gallery",
+  "Momente des Glaubens, der Hingabe und unserer lebendigen Tempelgemeinschaft.": "Moments of faith, devotion and our vibrant temple community.",
+  "Weitere Momente aus unserem Tempel": "More Moments from Our Temple",
   "Moolasthanam": "Moolasthanam",
   "Die Göttin am Eingang des Tempels": "The Goddess at the Temple Entrance",
   "Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "Visitors see this form of the goddess upon entering the temple. This is where Abhishekam takes place.",
   "Besondere Festtage": "Special Festival Days",
   "Sri Nagapoosani Ambaal an Festtagen": "Sri Nagapoosani Ambaal on Festival Days",
   "Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "This form of the goddess is carried in procession on special holy days, including during the Theer festival.",
+  "Ambaal im Festschmuck": "Ambaal in Festive Adornment",
+  "Pooja im Tempel": "Pooja at the Temple",
+  "Deepa Aradhanai": "Deepa Aradhanai",
+  "Festliche Verehrung": "Festival Worship",
+  "Traditionelle Tempelmusik": "Traditional Temple Music",
+  "Gemeinschaft am Festtag": "Community on a Festival Day",
   "Unsere gemeinsame Zukunft": "Our Shared Future",
   "Die Vision eines eigenen Tempels": "Our Vision for a Permanent Temple",
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "Our Sri Nagapoosani Ambaal Temple is currently located in rented premises in central Krefeld. This makes the temple easy to reach, but parking nearby is limited. In the long term, the current premises and location are not suitable for the needs of our growing temple community or for larger religious events. Nevertheless, this place remains very valuable to our community.",
@@ -182,8 +217,29 @@ const tamilAttributes = {
   "Zum nächsten Abschnitt": "அடுத்த பகுதிக்குச் செல்லவும்",
   "Regelmäßiger Wochenplan": "வழக்கமான வாராந்திர நேர அட்டவணை",
   "Aktuelle Ankündigungen als PDF öffnen": "தற்போதைய அறிவிப்புகளை PDF வடிவில் திறக்கவும்",
+  "Archanai – ein persönliches Gebet an Ambaal": "அர்ச்சனை – அம்பாளிடம் ஒரு தனிப்பட்ட பிரார்த்தனை",
   "Moolasthanam der Sri Nagapoosani Ambaal im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தில் ஸ்ரீ நாகபூசணி அம்பாளின் மூலஸ்தானம்",
   "Sri Nagapoosani Ambaal während eines besonderen Festtages im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தின் விசேட திருவிழாவில் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Bildergalerie steuern": "படத்தொகுப்பை இயக்கவும்",
+  "In der Bilderreihe zurück": "படவரிசையில் பின்னால் செல்லவும்",
+  "In der Bilderreihe weiter": "படவரிசையில் முன்னால் செல்லவும்",
+  "Weitere Einblicke aus unserem Tempel": "எமது ஆலயத்தின் மேலும் சில தரிசனங்கள்",
+  "Ambaal im Festschmuck groß öffnen": "திருவிழா அலங்காரத்தில் அம்பாளின் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Pooja im Tempel groß öffnen": "ஆலயப் பூஜை படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Deepa Aradhanai groß öffnen": "தீபாராதனை படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Festliche Verehrung groß öffnen": "விசேட வழிபாட்டு படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Traditionelle Tempelmusik groß öffnen": "பாரம்பரிய ஆலய இசைப் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Gemeinschaft am Festtag groß öffnen": "திருவிழா சமூகப் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Bildergalerie in Großansicht": "படத்தொகுப்பைப் பெரிய காட்சியில் காணவும்",
+  "Galerie schließen": "படத்தொகுப்பை மூடவும்",
+  "Vorheriges Bild": "முந்தைய படம்",
+  "Nächstes Bild": "அடுத்த படம்",
+  "Festlich geschmückte Sri Nagapoosani Ambaal im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தில் திருவிழா அலங்காரத்தில் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Tempelpriester während einer Pooja vor Sri Nagapoosani Ambaal": "ஸ்ரீ நாகபூசணி அம்பாள் முன் பூஜை செய்யும் ஆலயக் குரு",
+  "Tempelpriester bei der Deepa Aradhanai vor Sri Nagapoosani Ambaal": "ஸ்ரீ நாகபூசணி அம்பாள் முன் தீபாராதனை செய்யும் ஆலயக் குரு",
+  "Zwei Tempelpriester während der festlichen Verehrung von Sri Nagapoosani Ambaal": "ஸ்ரீ நாகபூசணி அம்பாளுக்கு விசேட வழிபாடு செய்யும் இரு ஆலயக் குருக்கள்",
+  "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தில் நாதஸ்வரம் மற்றும் தவில் இசைக்கலைஞர்கள்",
+  "Tempelgemeinschaft während eines besonderen Festtages": "விசேட திருவிழாவின் போது ஆலயச் சமூகம்",
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
 };
 
@@ -204,8 +260,29 @@ const englishAttributes = {
   "Zum nächsten Abschnitt": "Go to the next section",
   "Regelmäßiger Wochenplan": "Regular weekly schedule",
   "Aktuelle Ankündigungen als PDF öffnen": "Open current announcements as a PDF",
+  "Archanai – ein persönliches Gebet an Ambaal": "Archanai – a personal prayer to Ambaal",
   "Moolasthanam der Sri Nagapoosani Ambaal im Tempel Krefeld": "Moolasthanam of Sri Nagapoosani Ambaal at the Krefeld temple",
   "Sri Nagapoosani Ambaal während eines besonderen Festtages im Tempel Krefeld": "Sri Nagapoosani Ambaal during a special festival day at the Krefeld temple",
+  "Bildergalerie steuern": "Control photo gallery",
+  "In der Bilderreihe zurück": "Move back through the photo row",
+  "In der Bilderreihe weiter": "Move forward through the photo row",
+  "Weitere Einblicke aus unserem Tempel": "More glimpses from our temple",
+  "Ambaal im Festschmuck groß öffnen": "Open Ambaal in festive adornment in a large view",
+  "Pooja im Tempel groß öffnen": "Open Pooja at the temple in a large view",
+  "Deepa Aradhanai groß öffnen": "Open Deepa Aradhanai in a large view",
+  "Festliche Verehrung groß öffnen": "Open festival worship in a large view",
+  "Traditionelle Tempelmusik groß öffnen": "Open traditional temple music in a large view",
+  "Gemeinschaft am Festtag groß öffnen": "Open the festival community photo in a large view",
+  "Bildergalerie in Großansicht": "Photo gallery in large view",
+  "Galerie schließen": "Close gallery",
+  "Vorheriges Bild": "Previous image",
+  "Nächstes Bild": "Next image",
+  "Festlich geschmückte Sri Nagapoosani Ambaal im Tempel Krefeld": "Sri Nagapoosani Ambaal in festive adornment at the Krefeld temple",
+  "Tempelpriester während einer Pooja vor Sri Nagapoosani Ambaal": "Temple priest during a Pooja before Sri Nagapoosani Ambaal",
+  "Tempelpriester bei der Deepa Aradhanai vor Sri Nagapoosani Ambaal": "Temple priest performing Deepa Aradhanai before Sri Nagapoosani Ambaal",
+  "Zwei Tempelpriester während der festlichen Verehrung von Sri Nagapoosani Ambaal": "Two temple priests during the festival worship of Sri Nagapoosani Ambaal",
+  "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "Musicians playing Nadaswaram and Thavil at the Krefeld temple",
+  "Tempelgemeinschaft während eines besonderen Festtages": "Temple community during a special festival day",
   "Rechtliche Hinweise": "Legal information"
 };
 
@@ -273,6 +350,8 @@ function applyLanguage(language) {
     button.setAttribute("aria-pressed", String(active));
   });
 
+  if (galleryLightbox?.open) updateLightbox(currentGalleryIndex);
+
   try { window.localStorage.setItem("temple-language", selected); } catch (_) {}
 }
 
@@ -296,6 +375,59 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.language));
 });
+
+function updateLightbox(index) {
+  if (!galleryItems.length) return;
+  currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
+  const item = galleryItems[currentGalleryIndex];
+  const sourceImage = item.querySelector("img");
+  const sourceCaption = item.querySelector("span");
+  lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
+  lightboxImage.alt = sourceImage.alt;
+  lightboxCaption.textContent = sourceCaption.textContent;
+  lightboxCounter.textContent = `${currentGalleryIndex + 1} / ${galleryItems.length}`;
+}
+
+function openLightbox(index) {
+  updateLightbox(index);
+  if (!galleryLightbox.open) galleryLightbox.showModal();
+}
+
+galleryItems.forEach((item, index) => {
+  item.addEventListener("click", () => openLightbox(index));
+});
+
+document.querySelector("[data-gallery-prev]")?.addEventListener("click", () => {
+  galleryRail.scrollBy({ left: -galleryRail.clientWidth * 0.82, behavior: "smooth" });
+});
+
+document.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
+  galleryRail.scrollBy({ left: galleryRail.clientWidth * 0.82, behavior: "smooth" });
+});
+
+document.querySelector("[data-gallery-close]")?.addEventListener("click", () => galleryLightbox.close());
+document.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => updateLightbox(currentGalleryIndex - 1));
+document.querySelector("[data-lightbox-next]")?.addEventListener("click", () => updateLightbox(currentGalleryIndex + 1));
+
+galleryLightbox?.addEventListener("click", (event) => {
+  if (event.target === galleryLightbox) galleryLightbox.close();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (!galleryLightbox?.open) return;
+  if (event.key === "ArrowLeft") updateLightbox(currentGalleryIndex - 1);
+  if (event.key === "ArrowRight") updateLightbox(currentGalleryIndex + 1);
+});
+
+let galleryTouchStartX = 0;
+galleryLightbox?.addEventListener("touchstart", (event) => {
+  galleryTouchStartX = event.changedTouches[0].clientX;
+}, { passive: true });
+galleryLightbox?.addEventListener("touchend", (event) => {
+  const distance = event.changedTouches[0].clientX - galleryTouchStartX;
+  if (Math.abs(distance) < 45) return;
+  updateLightbox(currentGalleryIndex + (distance < 0 ? 1 : -1));
+}, { passive: true });
 
 let storedLanguage = "de";
 try { storedLanguage = window.localStorage.getItem("temple-language") || "de"; } catch (_) {}
