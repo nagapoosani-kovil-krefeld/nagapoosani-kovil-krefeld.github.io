@@ -1,0 +1,40 @@
+name: Add Santhanakappu Tamil caption
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/add-santhanakappu-caption.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add Tamil gallery caption
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          key = '  "Sri Nagapoosani Ambaal im Moolasthanam": "சந்தனக்காப்பு அலங்காரத்தில் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்",\n'
+          if '"Sri Nagapoosani Ambaal im Moolasthanam"' not in s:
+              marker = '  "Moolasthanam": "மூலஸ்தானம்",\n'
+              if marker not in s:
+                  raise SystemExit('Tamil Moolasthanam marker not found')
+              s = s.replace(marker, marker + key, 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git diff --cached --quiet || git commit -m "Add Tamil Santhanakappu gallery caption"
+          git push origin main
