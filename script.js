@@ -51,7 +51,8 @@ const tamilText = {
   "17:30–18:00 Uhr": "17:30–18:00 மணி",
   "ab 18:00 Uhr": "18:00 மணி முதல்",
   "Die Zeiten für Samstag und Sonntag werden nach der Bestätigung durch unseren Priester ergänzt.": "சனி மற்றும் ஞாயிற்றுக்கிழமை நேரங்கள் எமது ஆலயக் குருவின் உறுதிப்படுத்தலுக்குப் பின்னர் சேர்க்கப்படும்.",
-  "Aktuelle Ankündigungen (PDF)": "தற்போதைய அறிவிப்புகள் (PDF)",
+  "Aktuelle Ankündigungen": "தற்போதைய அறிவிப்புகள்",
+  "Monatliche Pooja-Übersicht als PDF": "மாதாந்த பூஜை விவரங்கள் – PDF",
   "Offen für alle": "அனைவருக்கும் திறந்தது",
   "Hinweise für den ersten Besuch": "முதல் வருகைக்கான வழிகாட்டல்கள்",
   "Niemand muss die Abläufe bereits kennen. Besucherinnen und Besucher können ruhig beobachten und respektvoll teilnehmen.": "ஆலய வழிபாட்டு முறைகளை முன்கூட்டியே அறிந்திருக்க வேண்டிய அவசியமில்லை. வருகையாளர்கள் அமைதியாகக் கவனித்து, மரியாதையுடன் கலந்துகொள்ளலாம்.",
@@ -101,6 +102,7 @@ const tamilAttributes = {
   "Sri Nagapoosani Ambaal mit der schützenden Nagagestalt": "நாக வடிவத்தின் பாதுகாப்புடன் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Zum nächsten Abschnitt": "அடுத்த பகுதிக்குச் செல்லவும்",
   "Regelmäßiger Wochenplan": "வழக்கமான வாராந்திர நேர அட்டவணை",
+  "Aktuelle Ankündigungen als PDF öffnen": "தற்போதைய அறிவிப்புகளை PDF வடிவில் திறக்கவும்",
   "Moolasthanam der Sri Nagapoosani Ambaal im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தில் ஸ்ரீ நாகபூசணி அம்பாளின் மூலஸ்தானம்",
   "Sri Nagapoosani Ambaal während eines besonderen Festtages im Tempel Krefeld": "கிரேபில்ட் ஆலயத்தின் விசேட திருவிழாவில் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
