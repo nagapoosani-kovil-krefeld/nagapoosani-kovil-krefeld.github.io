@@ -1,0 +1,56 @@
+name: Apply gallery heading translations
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply exact gallery heading replacements
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          html = index.read_text(encoding='utf-8')
+          old_h = '<h3>Die Göttin am Eingang des Tempels</h3>'
+          new_h = '<h3>Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels</h3>'
+          if html.count(old_h) != 1:
+              raise SystemExit(f'Expected 1 German heading, found {html.count(old_h)}')
+          html = html.replace(old_h, new_h, 1)
+          html = html.replace('script.js?v=20260819-5', 'script.js?v=20260819-6', 1)
+          index.write_text(html, encoding='utf-8')
+
+          script = Path('script.js')
+          js = script.read_text(encoding='utf-8')
+          old_ta = '  "Die Göttin am Eingang des Tempels": "ஆலய நுழைவில் அருள்பாலிக்கும் அம்பாள்",'
+          new_ta = '  "Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels": "ஆலயத்திற்குள் வந்தவுடன் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்",'
+          old_en = '  "Die Göttin am Eingang des Tempels": "The Goddess at the Temple Entrance",'
+          new_en = '  "Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels": "Sri Nagapoosani Ambaal – the first sight upon entering the temple",'
+          if js.count(old_ta) != 1:
+              raise SystemExit(f'Expected 1 Tamil mapping, found {js.count(old_ta)}')
+          if js.count(old_en) != 1:
+              raise SystemExit(f'Expected 1 English mapping, found {js.count(old_en)}')
+          js = js.replace(old_ta, new_ta, 1).replace(old_en, new_en, 1)
+          script.write_text(js, encoding='utf-8')
+          PY
+      - name: Remove temporary workflow and commit
+        shell: bash
+        run: |
+          rm -f .github/workflows/apply-gallery-heading.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js .github/workflows/apply-gallery-heading.yml
+          git commit -m "Update gallery heading in all languages"
+          git push origin HEAD:main
