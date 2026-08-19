@@ -1,0 +1,47 @@
+name: Update Tamil Pooja live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-tamil-pooja-live.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply approved Tamil Pooja changes only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          replacements = [
+            ('"Poojas einfach erklärt": "பூஜைகள் – எளிய விளக்கம்"', '"Poojas einfach erklärt": "பூஜை மற்றும் வழிபாட்டு முறைகள்"'),
+            ('"Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können bei jedem Abhishekam am Empfang für": "அபிஷேகத்தின் போது ஸ்ரீ நாகபூசணி அம்பாளுக்கு புனித நீராட்டுச் செய்து வழிபாடு நடைபெறும். ஒவ்வொரு அபிஷேகத்தின்போதும் அடியவர்கள் வரவேற்புப் பகுதியில்"', '"Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können bei jedem Abhishekam am Empfang für": "அபிஷேகத்தின் போது ஸ்ரீ நாகபூசணி அம்பாளுக்கு அபிஷேகம் செய்து விசேஷ வழிபாடு நடைபெறும். விரும்பும் பக்தர்கள் வரவேற்பிடத்தில்"'),
+            ('"2 € Milch erwerben": "2 € செலுத்தி பாலைப் பெறலாம்"', '"2 € Milch erwerben": "2 € செலுத்தி பால் பெற்றுக்கொண்டு"'),
+            ('"und diese als Opfergabe bereitstellen.": "அந்தப் பாலை அம்பாளுக்கான காணிக்கையாக வழங்கலாம்."', '"und diese als Opfergabe bereitstellen.": "அதனை அபிஷேகத்திற்கான காணிக்கையாக வழங்கலாம்."'),
+            ('"Bei der Übergabe der Milch können die Gläubigen ihre persönlichen Wünsche und Gebete vorbringen. Mit der Opfergabe verbinden sie die Hoffnung, dass Sri Nagapoosani Ambaal ihre Bitten erhört und ihnen ihren Segen schenkt.": "பாலை ஒப்படைக்கும் போது அடியவர்கள் தங்களது தனிப்பட்ட வேண்டுதல்களையும் பிரார்த்தனைகளையும் சமர்ப்பிக்கலாம். ஸ்ரீ நாகபூசணி அம்பாள் தங்களது வேண்டுதல்களுக்கு செவிசாய்த்து அருள்புரிவார் என்ற நம்பிக்கையுடன் இந்தக் காணிக்கை வழங்கப்படுகிறது."', '"Bei der Übergabe der Milch können die Gläubigen ihre persönlichen Wünsche und Gebete vorbringen. Mit der Opfergabe verbinden sie die Hoffnung, dass Sri Nagapoosani Ambaal ihre Bitten erhört und ihnen ihren Segen schenkt.": "பால் அபிஷேகம் செலுத்தும் போது தங்கள் வேண்டுதல்களையும் பிரார்த்தனைகளையும் மனதில் கொண்டு அம்பாளை வேண்டிக்கொள்ளலாம். தங்கள் வேண்டுதல்களை அம்பாள் ஏற்று அருள்புரிவார் என்ற நம்பிக்கையுடன் பக்தர்கள் இக்காணிக்கையை செலுத்துகின்றனர்."'),
+            ('"Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "அபிஷேகத்தைத் தொடர்ந்து கூட்டுப் பூஜை நடைபெறும். ஒவ்வொரு நாளுக்குமான ஆரம்ப நேரத்தை வார அட்டவணையில் காணலாம்."', '"Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.": "அபிஷேகம் நிறைவடைந்த பின்னர் பொதுப் பூஜை நடைபெறும். அன்றைய பூஜை ஆரம்ப நேரத்தை வார அட்டவணையில் காணலாம்."'),
+            ('"Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "செவ்வாய்க்கிழமையும் வெள்ளிக்கிழமையும் எமது ஆலயத்தில் விசேட புனித நாட்களாகக் கருதப்படுகின்றன. அபிஷேகம் 17:00 மணிக்கும், அதனைத் தொடர்ந்து பூஜை 18:00 மணிக்கும் ஆரம்பமாகும்."', '"Dienstag und Freitag gelten in unserem Tempel als besondere heilige Tage. Das Abhishekam beginnt um 17:00 Uhr, die anschließende Pooja um 18:00 Uhr.": "செவ்வாய்க்கிழமையும் வெள்ளிக்கிழமையும் எமது ஆலயத்தின் விசேட வழிபாட்டு நாட்களாகும். இவ்விரு நாட்களிலும் அபிஷேகம் மாலை 17:00 மணிக்கும், அதனைத் தொடர்ந்து பூஜை 18:00 மணிக்கும் ஆரம்பமாகும்."'),
+          ]
+          for old, new in replacements:
+              if old not in s:
+                  raise SystemExit(f'Missing expected source text: {old[:120]}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit approved Tamil Pooja changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git diff --cached --quiet || git commit -m "Refine approved Tamil Pooja copy"
+          git push origin main
