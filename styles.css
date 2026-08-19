@@ -251,7 +251,7 @@ h1 {
   box-shadow: inset 4px 0 0 var(--gold);
 }
 .schedule-row.holy-day strong {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding-left: 12px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
 }
 .schedule-row.holy-day strong::after {
   content: "✦ Heiliger Tag"; display: inline-flex; padding: 2px 5px; white-space: nowrap;
@@ -432,7 +432,7 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .section-inner { width: calc(100% - 28px); }
   .visit-list { grid-template-columns: 1fr; }
   .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.9fr 1.2fr; gap: 8px; font-size: 11px; }
-  .schedule-row.holy-day strong { gap: 3px; padding-left: 8px; }
+  .schedule-row.holy-day strong { gap: 3px; }
   .schedule-row.holy-day strong::after { padding: 2px 3px; font-size: 6px; letter-spacing: 0.04em; }
   .legal-header { align-items: flex-start; padding: 16px 0; }
   .legal-header .brand-name { display: none; }
