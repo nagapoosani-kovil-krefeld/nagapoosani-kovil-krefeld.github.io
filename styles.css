@@ -246,9 +246,18 @@ h1 {
 .schedule-row { min-height: 64px; font-size: 13px; }
 .schedule-row span { color: var(--muted); }
 .schedule-row.holy-day {
+  position: relative;
   color: var(--deep);
   background: linear-gradient(90deg, rgba(225, 195, 129, 0.3), rgba(225, 195, 129, 0.1));
-  box-shadow: inset 4px 0 0 var(--gold);
+}
+.schedule-row.holy-day::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -19px;
+  width: 4px;
+  background: var(--gold);
 }
 .schedule-row.holy-day strong {
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
