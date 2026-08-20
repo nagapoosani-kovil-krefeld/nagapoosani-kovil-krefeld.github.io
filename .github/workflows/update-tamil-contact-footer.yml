@@ -42,3 +42,5 @@ jobs:
           git add script.js
           git commit -m 'Refine Tamil contact and footer wording'
           git push origin main
+
+# trigger
