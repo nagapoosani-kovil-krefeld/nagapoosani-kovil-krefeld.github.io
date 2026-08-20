@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
 
+# trigger approved German update
 jobs:
   update:
     if: github.actor != 'github-actions[bot]'
@@ -98,8 +99,8 @@ jobs:
                   raise SystemExit(f'Expected JS key not found: {old[:100]}')
               js = js.replace(old, new)
 
-          old_desc = 'de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.",' 
-          new_desc = 'de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der Verehrung und der Gemeinschaft.",' 
+          old_desc = 'de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.",'
+          new_desc = 'de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der Verehrung und der Gemeinschaft.",'
           if old_desc not in js:
               raise SystemExit('German page description not found')
           js = js.replace(old_desc, new_desc, 1)
