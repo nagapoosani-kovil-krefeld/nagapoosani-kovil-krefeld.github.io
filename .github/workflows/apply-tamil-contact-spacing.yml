@@ -1,0 +1,39 @@
+name: Apply Tamil contact heading spacing
+
+on:
+  push:
+    branches:
+      - agent/tamil-natural-review
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/tamil-natural-review
+      - name: Add Tamil contact heading spacing
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('styles.css')
+          css = path.read_text(encoding='utf-8')
+          snippet = '''\n/* Tamil contact heading: preserve glyph clearance and underline spacing */\nhtml[lang="ta"] .contact-section h2 {\n  line-height: 1.16;\n}\n\nhtml[lang="ta"] .contact-section h2::after {\n  margin-top: 18px;\n}\n'''
+          if 'html[lang="ta"] .contact-section h2 {' not in css:
+              css += snippet
+              path.write_text(css, encoding='utf-8')
+          PY
+      - name: Commit spacing adjustment
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Adjust Tamil contact heading spacing"
+          git push origin HEAD:agent/tamil-natural-review
