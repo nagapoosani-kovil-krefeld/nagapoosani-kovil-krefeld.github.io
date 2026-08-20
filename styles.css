@@ -558,6 +558,7 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
 .contact-logo { display: block; width: 82px; height: 82px; object-fit: contain; margin: 24px auto 16px; border-radius: 50%; background: rgba(255,253,248,.78); box-shadow: 0 10px 28px rgba(13,43,42,.10); }
 @media (min-width: 821px) {
   html[lang="ta"] .contact-logo { transform: translateX(-72px); }
+  html[lang="ta"] .contact-grid > div:first-child > p:not(.section-kicker) { transform: translateX(-72px); }
 }
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 25px; }
 .social-links a {
