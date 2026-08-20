@@ -1,0 +1,80 @@
+name: Apply English content alignment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-english-content-alignment.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Align approved English content
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path('script.js')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = {
+            '"Ein Ort des Glaubens, der Verehrung und der Gemeinschaft.": "A place of faith, Tamil Hindu tradition and community."':
+            '"Ein Ort des Glaubens, der Verehrung und der Gemeinschaft.": "A sacred place of worship, faith and community."',
+            '"Glaube · Verehrung · Gemeinschaft": "Faith · Tradition · Community"':
+            '"Glaube · Verehrung · Gemeinschaft": "Faith · Worship · Community"',
+            '"Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der Gottesverehrung und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. finden hier regelmäßige Poojas, besondere Gottesdienste, religiöse Feste und kulturelle Veranstaltungen statt. Menschen aller Generationen kommen hier zusammen, um ihren Glauben zu leben und Gemeinschaft zu erfahren. Auch Gäste sind herzlich willkommen.": "The Sri Nagapoosani Ambaal Temple Krefeld is a place of prayer, Tamil Hindu tradition and gathering. Run by the Tamil Cultural Association Krefeld e.V., the temple provides our community with a shared place for Poojas, religious festivals and cultural life. Everyone who would like to learn about our faith and traditions is warmly welcome."':
+            '"Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der Gottesverehrung und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. finden hier regelmäßige Poojas, besondere Gottesdienste, religiöse Feste und kulturelle Veranstaltungen statt. Menschen aller Generationen kommen hier zusammen, um ihren Glauben zu leben und Gemeinschaft zu erfahren. Auch Gäste sind herzlich willkommen.": "The Sri Nagapoosani Ambaal Temple Krefeld is a place of prayer, worship and community. Run by the Tamil Cultural Association Krefeld e.V., the temple hosts regular Poojas, special worship services, religious festivals and cultural events. People of all generations come together here to practise their faith and experience community. Visitors are warmly welcome."',
+            '"Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Gläubige verehren sie als schützende und segenspendende Göttin und bringen ihre Wünsche, Sorgen und ihren Dank vertrauensvoll vor Ambaal. Sie bitten um Gesundheit, Schutz, innere Ruhe und Wohlergehen für sich und ihre Familien sowie um Frieden, Gerechtigkeit und Zusammenhalt. Durch Abhishekam, Poojas, Archanai und besondere Verehrungen wird dieser Glaube von Generation zu Generation weitergetragen. Einige Angehörige der jüngeren Generation beteiligen sich bereits an den Aufgaben des Tempels und übernehmen schrittweise Verantwortung. Für die Zukunft wünschen wir uns, dass sich weitere junge Menschen anschließen und das religiöse, soziale und gemeinschaftliche Leben des Tempels weitertragen.": "At the heart of our temple is Sri Nagapoosani Ambaal. Our community worships her as a protective goddess who bestows her blessings. Through prayers, Poojas and shared festivals, we preserve our traditions and pass them on to the next generation."':
+            '"Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Gläubige verehren sie als schützende und segenspendende Göttin und bringen ihre Wünsche, Sorgen und ihren Dank vertrauensvoll vor Ambaal. Sie bitten um Gesundheit, Schutz, innere Ruhe und Wohlergehen für sich und ihre Familien sowie um Frieden, Gerechtigkeit und Zusammenhalt. Durch Abhishekam, Poojas, Archanai und besondere Verehrungen wird dieser Glaube von Generation zu Generation weitergetragen. Einige Angehörige der jüngeren Generation beteiligen sich bereits an den Aufgaben des Tempels und übernehmen schrittweise Verantwortung. Für die Zukunft wünschen wir uns, dass sich weitere junge Menschen anschließen und das religiöse, soziale und gemeinschaftliche Leben des Tempels weitertragen.": "At the heart of our temple is Sri Nagapoosani Ambaal. Devotees worship her as a protective and blessing-giving goddess and bring their wishes, worries and gratitude before Ambaal with trust. They pray for health, protection, inner peace and well-being for themselves and their families, as well as for peace, justice and unity. Through Abhishekam, Poojas, Archanai and special forms of worship, this faith is carried forward from generation to generation. Some members of the younger generation already take part in temple responsibilities and are gradually taking on greater responsibility. For the future, we hope that more young people will join and help carry forward the religious, social and community life of the temple."',
+            '"Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können am Empfang": "During Abhishekam, Sri Nagapoosani Ambaal is ritually bathed and worshipped. At every Abhishekam, devotees can purchase"':
+            '"Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können am Empfang": "During Abhishekam, Sri Nagapoosani Ambaal is ritually bathed and worshipped. Devotees may obtain"',
+            '"für 2 € Milch für das Abhishekam erhalten": "milk for €2"':
+            '"für 2 € Milch für das Abhishekam erhalten": "milk for the Abhishekam for €2"',
+            '"und sie als Opfergabe darbringen.": "at reception and offer it to the goddess."':
+            '"und sie als Opfergabe darbringen.": "at reception and offer it as an offering."',
+            '"Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam.": "The communal Pooja takes place after Abhishekam."':
+            '"Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam.": "The communal Pooja takes place after Abhishekam. Mantras are recited, followed by Deepa Aradhanai and other special forms of worship. At the end, devotees receive Vibhuti and Prasadam."',
+            '"Traditionelle Tempelmusik": "Traditional Temple Music"':
+            '"Traditionelle Tempelmusik": "Nadaswaram · Thavil Music"',
+            '"Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, kulturelle Veranstaltungen und gemeinschaftliches Leben werden.": "Our vision is to purchase a suitable plot of land in Krefeld and build our own Hindu temple. The new temple will be a dignified and permanent home for Poojas, religious festivals, Tamil Hindu tradition, cultural exchange and our community."':
+            '"Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, kulturelle Veranstaltungen und gemeinschaftliches Leben werden.": "Our vision is to purchase a suitable plot of land in Krefeld and build our own Hindu temple. The new temple should become a dignified and permanent home for Poojas, religious festivals, cultural events and community gatherings."',
+            '"Unser Glaube und das religiöse Leben unseres Tempels sollen auch für kommende Generationen erhalten bleiben. Dafür möchten wir einen dauerhaften spirituellen Mittelpunkt schaffen. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "In this way, we aim to create a lasting place for future generations where our faith and traditions can be preserved and passed on. We will provide transparent updates about the next steps and the progress of the project."':
+            '"Unser Glaube und das religiöse Leben unseres Tempels sollen auch für kommende Generationen erhalten bleiben. Dafür möchten wir einen dauerhaften spirituellen Mittelpunkt schaffen. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "Our faith and the religious life of our temple should continue for future generations. We hope to create a permanent spiritual home for this purpose. We will provide transparent updates about the next steps and the progress of the project."',
+            '"Traditionelle Tempelmusik groß öffnen": "Open traditional temple music in a large view"':
+            '"Traditionelle Tempelmusik groß öffnen": "Open Nadaswaram and Thavil music in a large view"',
+            'en: "Sri Nagapoosani Ambaal Temple Krefeld – a place of faith, Tamil Hindu tradition and community."':
+            'en: "Sri Nagapoosani Ambaal Temple Krefeld – a sacred place of worship, faith and community."'
+          }
+
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Expected English text not found: {old[:120]}')
+              text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+
+          index = Path('index.html')
+          html = index.read_text(encoding='utf-8')
+          html, count = re.subn(r'script\.js\?v=(\d{8})-(\d+)', lambda m: f"script.js?v={m.group(1)}-{int(m.group(2))+1}", html, count=1)
+          if count != 1:
+              raise SystemExit('Script cache-bust reference not found')
+          index.write_text(html, encoding='utf-8')
+
+      - name: Commit approved English copy
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- script.js index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Align English content with final temple copy"
+          git push origin main
