@@ -99,15 +99,15 @@ const tamilText = {
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "எமது ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் தற்போது கிறிபில்ட் நகர மத்தியில் உள்ள ஒரு வாடகைக் கட்டிடத்தில் இயங்கி வருகிறது. நகர மத்தியில் அமைந்துள்ளதால் பக்தர்கள் ஆலயத்தை எளிதாக அடைய முடிகிறது. இருப்பினும் வாகன நிறுத்துமிடங்களின் பற்றாக்குறையும், வளர்ந்து வரும் எமது ஆலயக் குடும்பத்தின் தேவைகளும், பெரிய சமய மற்றும் திருவிழா நிகழ்வுகளை நடத்துவதற்கான இடவசதி குறைபாடும் எதிர்காலத்தை நோக்கி புதிய இடம் ஒன்றின் தேவையை உணர்த்துகின்றன. இருந்தாலும் தற்போதைய இந்த ஆலயம் எமது சமூகத்தின் ஆன்மிக வாழ்வில் மிக முக்கியமான இடத்தை வகிக்கிறது.",
   "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிறிபில்டில் பொருத்தமான நிலம் ஒன்றைப் பெற்று, அதில் எமக்கென ஒரு சொந்த இந்து ஆலயத்தை அமைப்பதே எமது நீண்டகால கனவாகும். புதிய ஆலயம் பூஜைகள், திருவிழாக்கள், தமிழ் இந்து சமயப் பாரம்பரியம், கலாசார நிகழ்வுகள் மற்றும் சமூகச் சந்திப்புகள் அனைத்தும் நடைபெறக்கூடிய நிரந்தரமான ஆன்மிக இல்லமாக அமைய வேண்டும் என்பதே எமது விருப்பம்.",
   "Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "எமது சமய நம்பிக்கையும் தமிழ் இந்து பாரம்பரியமும் வருங்காலத் தலைமுறைகளுக்கும் தொடர வேண்டும். அதற்கான ஒரு நிரந்தரமான ஆன்மிக மையமாக இந்த புதிய ஆலயம் அமைய வேண்டும் என்று நாம் விரும்புகிறோம். இந்த முயற்சியின் அடுத்தடுத்த கட்டங்கள் மற்றும் முன்னேற்றங்கள் குறித்து எமது பக்தர்களுக்கும் சமூகத்தினருக்கும் தொடர்ந்து தகவல் வழங்கப்படும்.",
-  "Besucht uns": "எம்மைச் சந்தியுங்கள்",
-  "Kontakt und Anfahrt": "தொடர்பு மற்றும் வழிகாட்டல்",
+  "Besucht uns": "ஆலயத்திற்கு வருகை தாருங்கள்",
+  "Kontakt und Anfahrt": "தொடர்பு மற்றும் வருகை வழி",
   "Tamilischer Kulturverein Krefeld e.V.": "கிறிபில்ட் தமிழ் கலாசாரச் சங்கம் e.V.",
   "· Tempel": "· ஆலயம்",
   "· Tempelverwalterin": "· ஆலய நிர்வாகி",
   "· Tempelpriester": "· ஆலயக் குரு",
-  "Route öffnen": "வழித்தடத்தைத் திறக்கவும்",
+  "Route öffnen": "வருகை வழியைப் பார்க்க",
   "Impressum": "சட்ட அறிவிப்பு",
-  "Datenschutz": "தரவுப் பாதுகாப்பு"
+  "Datenschutz": "தனியுரிமை"
 };
 
 const englishText = {
