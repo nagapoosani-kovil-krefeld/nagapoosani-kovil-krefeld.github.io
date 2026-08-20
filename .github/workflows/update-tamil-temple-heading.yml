@@ -1,0 +1,40 @@
+name: Update Tamil temple heading
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-tamil-temple-heading.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update only Tamil temple heading
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          old = '"Unser Tempel und Sri Nagapoosani Ambaal": "எமது ஆலயமும் ஸ்ரீ நாகபூசணி அம்பாளும்"'
+          new = '"Unser Tempel und Sri Nagapoosani Ambaal": "அம்பாளின் அருளில் எமது ஆலயம்"'
+          if old not in s:
+              raise SystemExit('Expected Tamil heading not found')
+          if s.count(old) != 1:
+              raise SystemExit('Expected exactly one matching heading')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit heading update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add script.js
+          git commit -m 'Refine Tamil temple heading'
+          git push origin main
