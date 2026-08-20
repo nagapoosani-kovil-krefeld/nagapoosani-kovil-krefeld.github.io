@@ -1,0 +1,47 @@
+name: Add contact logo
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert contact logo
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2><p>Tamilischer Kulturverein Krefeld e.V.</p>'
+          new = '<p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2><img class="contact-logo" src="assets/logo.webp" alt="Logo des Sri Nagapoosani Ambaal Tempels Krefeld" /><p>Tamilischer Kulturverein Krefeld e.V.</p>'
+          if old not in s:
+              raise SystemExit('contact block pattern not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+          css = Path('styles.css')
+          c = css.read_text(encoding='utf-8')
+          marker = '.contact-grid p { color: var(--muted); }'
+          addition = marker + '\n.contact-logo { width: 82px; height: 82px; object-fit: contain; margin: 24px 0 16px; border-radius: 50%; background: rgba(255,253,248,.78); box-shadow: 0 10px 28px rgba(13,43,42,.10); }'
+          if '.contact-logo {' not in c:
+              if marker not in c:
+                  raise SystemExit('contact css marker not found')
+              c = c.replace(marker, addition, 1)
+              css.write_text(c, encoding='utf-8')
+          PY
+      - name: Commit visible contact logo
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Show logo in contact section"
+          git push
