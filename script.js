@@ -30,7 +30,7 @@ const tamilText = {
   "Kontakt & Anfahrt": "தொடர்பு · வருகை வழி",
   "Möge ihr Segen allen zuteilwerden.": "அம்பாளின் திருவருள் அனைவருக்கும் கிடைக்கட்டும்.",
   "Mehr entdecken": "மேலும் அறிய",
-  "Glaube · Tradition · Gemeinschaft": "நம்பிக்கை · பாரம்பரியம் · சமூகம்",
+  "Glaube · Tradition · Gemeinschaft": "இறைநம்பிக்கை · வழிபாடு · சமூக ஒற்றுமை",
   "Unser Tempel und Sri Nagapoosani Ambaal": "அம்பாளின் அருளில் எமது ஆலயம்",
   "Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der tamilisch-hinduistischen Tradition und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. bietet der Tempel unserer Gemeinschaft einen gemeinsamen Ort für Poojas, religiöse Feste und kulturelles Leben. Auch Menschen, die unseren Glauben und unsere Tradition kennenlernen möchten, sind herzlich willkommen.": "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் ஒரு வழிபாட்டுத் தலம் மட்டுமல்ல; எமது மக்களின் ஆன்மீக வாழ்க்கையோடு இணைந்த ஒரு முக்கியமான இடமாகவும் விளங்குகிறது. கிறிபில்ட் தமிழ் கலாசாரச் சங்கம் e.V. நிர்வகிக்கும் இவ்வாலயத்தில் தினசரி பூஜைகள், விசேஷ வழிபாடுகள், சமய விழாக்கள் மற்றும் கலாசார நிகழ்வுகள் நடைபெற்று வருகின்றன. பெரியோர்கள் முதல் இளைய தலைமுறையினர் வரை அனைவரும் ஒன்றிணைந்து, சமய அறிவையும் சமூக உறவையும் பகிர்ந்து கொள்ளும் இடமாகவும் எமது ஆலயம் திகழ்கிறது. ஆலயத்திற்கு வருகை தரும் அனைவரையும் அன்புடன் வரவேற்கிறோம்.",
   "Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Sie wird von unserer Gemeinschaft als schützende und segenspendende Göttin verehrt. Durch Gebete, Poojas und gemeinsame Feste bewahren wir unsere Traditionen und geben sie an die nächste Generation weiter.": "எமது ஆலயத்தின் பிரதான தெய்வமாக ஸ்ரீ நாகபூசணி அம்பாள் எழுந்தருளி அருள்பாலித்து வருகின்றார். தம்மை நம்பிக்கையுடன் நாடி வருவோருக்கு தாயின் அரவணைப்பைப் போன்று நலம், பாதுகாப்பு, மனநிம்மதி மற்றும் வாழ்வில் வளம் கிடைக்கும் என்ற நம்பிக்கையுடன் பக்தர்கள் வழிபடுகின்றனர். மனதில் தாங்கி வரும் வேண்டுதல்கள், கவலைகள் மற்றும் நன்றிகளை திருவடிகளில் சமர்ப்பித்து, வாழ்க்கைப் பயணத்தில் துணையும் வழிகாட்டுதலும் வேண்டுகின்றனர். அதேபோல் உலகில் அநீதி அகன்று நீதி நிலைக்கவும், துன்பங்கள் குறைந்து மக்கள் அமைதியுடனும் ஒற்றுமையுடனும் வாழவும் அம்பாளை வேண்டிப் பிரார்த்திக்கின்றனர். அபிஷேகம், பூஜை, அர்ச்சனை மற்றும் விசேஷ வழிபாடுகள் வழியாக இந்த இறைநம்பிக்கை தலைமுறை தலைமுறையாகப் பேணிப் பாதுகாக்கப்படுகிறது. இன்றைய இளைய தலைமுறையினர் ஆலயப் பணிகளில் செயற்பாட்டுடன் பங்கேற்று, பொறுப்புகளை ஏற்று வருகின்றனர். அவர்களின் பங்களிப்பின் மூலம் ஆலயத்தின் வழிபாடு, சேவை மற்றும் சமூகப் பணி வருங்காலத்திலும் தொடர்ந்து வளர வேண்டும் என்பதே எமது நோக்கம்.",
@@ -92,12 +92,12 @@ const tamilText = {
   "Pooja im Tempel": "ஆலயப் பூஜை",
   "Deepa Aradhanai": "தீபாராதனை",
   "Festliche Verehrung": "திருவிழா வழிபாடு",
-  "Traditionelle Tempelmusik": "பாரம்பரிய ஆலய இசை",
+  "Traditionelle Tempelmusik": "நாதஸ்வரம் · தவில் இசை",
   "Gemeinschaft am Festtag": "திருநாளில் எமது ஆலயச் சமூகம்",
   "Unsere gemeinsame Zukunft": "எமது எதிர்காலப் பயணம்",
   "Die Vision eines eigenen Tempels": "சொந்த ஆலயத்திற்கான எமது கனவு",
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "எமது ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் தற்போது கிறிபில்ட் நகர மத்தியில் உள்ள ஒரு வாடகைக் கட்டிடத்தில் இயங்கி வருகிறது. நகர மத்தியில் அமைந்துள்ளதால் பக்தர்கள் ஆலயத்தை எளிதாக அடைய முடிகிறது. இருப்பினும் வாகன நிறுத்துமிடங்களின் பற்றாக்குறையும், வளர்ந்து வரும் எமது ஆலயக் குடும்பத்தின் தேவைகளும், பெரிய சமய மற்றும் திருவிழா நிகழ்வுகளை நடத்துவதற்கான இடவசதி குறைபாடும் எதிர்காலத்தை நோக்கி புதிய இடம் ஒன்றின் தேவையை உணர்த்துகின்றன. இருந்தாலும் தற்போதைய இந்த ஆலயம் எமது சமூகத்தின் ஆன்மிக வாழ்வில் மிக முக்கியமான இடத்தை வகிக்கிறது.",
-  "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிறிபில்டில் பொருத்தமான நிலம் ஒன்றைப் பெற்று, அதில் எமக்கென ஒரு சொந்த இந்து ஆலயத்தை அமைப்பதே எமது நீண்டகால கனவாகும். புதிய ஆலயம் பூஜைகள், திருவிழாக்கள், தமிழ் இந்து சமயப் பாரம்பரியம், கலாசார நிகழ்வுகள் மற்றும் சமூகச் சந்திப்புகள் அனைத்தும் நடைபெறக்கூடிய நிரந்தரமான ஆன்மிக இல்லமாக அமைய வேண்டும் என்பதே எமது விருப்பம்.",
+  "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிறிபில்டில் பொருத்தமான நிலம் ஒன்றைப் பெற்று, அதில் எமக்கென ஒரு சொந்த இந்து ஆலயத்தை அமைப்பதே எமது நீண்டகால கனவாகும். புதிய ஆலயம் பூஜைகள், திருவிழாக்கள், சமய நிகழ்வுகள், கலாசார நிகழ்வுகள் மற்றும் சமூக ஒன்றுகூடல்கள் நடைபெறும் நிரந்தரமான ஆன்மிக இல்லமாக அமைய வேண்டும் என்பதே எமது விருப்பம்.",
   "Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "எமது சமய நம்பிக்கையும் தமிழ் இந்து பாரம்பரியமும் வருங்காலத் தலைமுறைகளுக்கும் தொடர வேண்டும். அதற்கான ஒரு நிரந்தரமான ஆன்மிக மையமாக இந்த புதிய ஆலயம் அமைய வேண்டும் என்று நாம் விரும்புகிறோம். இந்த முயற்சியின் அடுத்தடுத்த கட்டங்கள் மற்றும் முன்னேற்றங்கள் குறித்து எமது பக்தர்களுக்கும் சமூகத்தினருக்கும் தொடர்ந்து தகவல் வழங்கப்படும்.",
   "Besucht uns": "ஆலயத்திற்கு வருகை தாருங்கள்",
   "Kontakt und Anfahrt": "ஆலயத் தொடர்பு மற்றும் முகவரி",
@@ -235,7 +235,7 @@ const tamilAttributes = {
   "Pooja im Tempel groß öffnen": "ஆலயப் பூஜை படத்தைப் பெரிதாகத் திறக்கவும்",
   "Deepa Aradhanai groß öffnen": "தீபாராதனை படத்தைப் பெரிதாகத் திறக்கவும்",
   "Festliche Verehrung groß öffnen": "விசேட வழிபாட்டு படத்தைப் பெரிதாகத் திறக்கவும்",
-  "Traditionelle Tempelmusik groß öffnen": "பாரம்பரிய ஆலய இசைப் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Traditionelle Tempelmusik groß öffnen": "நாதஸ்வரம் மற்றும் தவில் இசைப் படத்தைப் பெரிதாகத் திறக்கவும்",
   "Gemeinschaft am Festtag groß öffnen": "திருவிழா சமூகப் படத்தைப் பெரிதாகத் திறக்கவும்",
   "Bildergalerie in Großansicht": "படத்தொகுப்பைப் பெரிய காட்சியில் காணவும்",
   "Galerie schließen": "படத்தொகுப்பை மூடவும்",
@@ -320,7 +320,7 @@ const pageTitles = {
 };
 const pageDescriptions = {
   de: "Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.",
-  ta: "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் – நம்பிக்கை, தமிழ் இந்து பாரம்பரியம் மற்றும் சமூக ஒற்றுமைக்கான ஓர் இடம்.",
+  ta: "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் – இறைவழிபாடும் சமூக ஒற்றுமையும் நிறைந்த புனிதத் தலம்.",
   en: "Sri Nagapoosani Ambaal Temple Krefeld – a place of faith, Tamil Hindu tradition and community."
 };
 
