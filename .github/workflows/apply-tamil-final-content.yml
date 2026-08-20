@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
 
+# trigger final content update
 jobs:
   update:
     if: github.actor != 'github-actions[bot]'
