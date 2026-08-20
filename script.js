@@ -88,7 +88,7 @@ const tamilText = {
   "Besondere Festtage": "விசேட திருநாட்கள்",
   "Sri Nagapoosani Ambaal an Festtagen": "விசேட திருநாட்களில் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "விசேட திருநாட்களிலும் தேர்த்திருவிழா போன்ற நிகழ்வுகளிலும் இந்த அம்பாள் திருவுருவம் பவனியாக எடுத்துச் செல்லப்படுகிறது.",
-  "Ambaal im Festschmuck": "ஆடிப்பூரத் திருவிழாவில் அம்பாள்",
+  "Ambaal im Festschmuck": "ஆடிப்பூர அலங்காரத்தில் அம்பாள்",
   "Pooja im Tempel": "ஆலயப் பூஜை",
   "Deepa Aradhanai": "தீபாராதனை",
   "Festliche Verehrung": "திருவிழா வழிபாடு",
