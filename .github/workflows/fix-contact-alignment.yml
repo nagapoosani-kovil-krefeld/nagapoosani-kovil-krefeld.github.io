@@ -1,0 +1,96 @@
+name: Align Tamil contact block
+
+on:
+  push:
+    branches:
+      - agent/tamil-natural-review-v2
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/tamil-natural-review-v2
+      - name: Update contact layout and Tamil heading
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html')
+          html = index.read_text(encoding='utf-8')
+          old = '''          <div>\n            <p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2><p>Tamilischer Kulturverein Krefeld e.V.</p>\n            <nav class="social-links" aria-label="Soziale Medien">'''
+          new = '''          <div class="contact-brand-block">\n            <p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2>\n            <img class="contact-brand-logo" src="assets/logo.webp" alt="Logo des Sri Nagapoosani Ambaal Tempels Krefeld" />\n            <p class="contact-brand-name">Tamilischer Kulturverein Krefeld e.V.</p>\n            <nav class="social-links" aria-label="Soziale Medien">'''
+          if old not in html:
+              raise SystemExit('Expected contact block not found')
+          html = html.replace(old, new, 1)
+          index.write_text(html, encoding='utf-8')
+
+          script = Path('script.js')
+          js = script.read_text(encoding='utf-8')
+          old_ta = '  "Kontakt und Anfahrt": "தொடர்பு · வருகை வழி",'
+          new_ta = '  "Kontakt und Anfahrt": "ஆலயத் தொடர்பு மற்றும் முகவரி",'
+          if old_ta not in js:
+              raise SystemExit('Expected Tamil contact heading not found')
+          js = js.replace(old_ta, new_ta, 1)
+          script.write_text(js, encoding='utf-8')
+
+          styles = Path('styles.css')
+          css = styles.read_text(encoding='utf-8')
+          addition = r'''
+
+/* Keep the contact identity on one fixed visual axis across languages. */
+.contact-brand-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.contact-brand-block .section-kicker,
+.contact-brand-block h2 {
+  width: 100%;
+  text-align: center;
+}
+.contact-brand-block h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-brand-logo {
+  width: 96px;
+  height: 96px;
+  margin: 24px auto 16px;
+  display: block;
+  object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255, 253, 248, .78);
+  box-shadow: 0 10px 28px rgba(13, 43, 42, .10);
+}
+.contact-brand-name {
+  margin: 0;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+}
+.contact-brand-block .social-links {
+  width: 100%;
+  justify-content: center;
+}
+'''
+          if '.contact-brand-block {' not in css:
+              css += addition
+          styles.write_text(css, encoding='utf-8')
+          PY
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Center Tamil contact identity"
+          git push origin HEAD:agent/tamil-natural-review-v2
