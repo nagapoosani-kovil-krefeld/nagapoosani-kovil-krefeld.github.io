@@ -561,6 +561,7 @@ html[lang="ta"] .contact-section h2 { line-height: 1.28; }
   html[lang="ta"] .contact-logo { transform: translateX(-72px); }
   html[lang="ta"] .contact-grid > div:first-child > p:not(.section-kicker) { transform: translateX(-72px); }
   html[lang="ta"] .contact-grid > div:first-child .social-links { transform: translateX(-72px); margin-top: 14px; }
+  html[lang="ta"] .contact-grid address { transform: translateY(-34px); }
 }
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 25px; }
 .social-links a {
