@@ -100,7 +100,7 @@ const tamilText = {
   "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.": "கிறிபில்டில் பொருத்தமான நிலம் ஒன்றைப் பெற்று, அதில் எமக்கென ஒரு சொந்த இந்து ஆலயத்தை அமைப்பதே எமது நீண்டகால கனவாகும். புதிய ஆலயம் பூஜைகள், திருவிழாக்கள், தமிழ் இந்து சமயப் பாரம்பரியம், கலாசார நிகழ்வுகள் மற்றும் சமூகச் சந்திப்புகள் அனைத்தும் நடைபெறக்கூடிய நிரந்தரமான ஆன்மிக இல்லமாக அமைய வேண்டும் என்பதே எமது விருப்பம்.",
   "Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "எமது சமய நம்பிக்கையும் தமிழ் இந்து பாரம்பரியமும் வருங்காலத் தலைமுறைகளுக்கும் தொடர வேண்டும். அதற்கான ஒரு நிரந்தரமான ஆன்மிக மையமாக இந்த புதிய ஆலயம் அமைய வேண்டும் என்று நாம் விரும்புகிறோம். இந்த முயற்சியின் அடுத்தடுத்த கட்டங்கள் மற்றும் முன்னேற்றங்கள் குறித்து எமது பக்தர்களுக்கும் சமூகத்தினருக்கும் தொடர்ந்து தகவல் வழங்கப்படும்.",
   "Besucht uns": "ஆலயத்திற்கு வருகை தாருங்கள்",
-  "Kontakt und Anfahrt": "தொடர்பு மற்றும் வருகை வழி",
+  "Kontakt und Anfahrt": "ஆலயத் தொடர்பு மற்றும் முகவரி",
   "Tamilischer Kulturverein Krefeld e.V.": "கிறிபில்ட் தமிழ் கலாசாரச் சங்கம் e.V.",
   "· Tempel": "· ஆலயம்",
   "· Tempelverwalterin": "· ஆலய நிர்வாகி",
