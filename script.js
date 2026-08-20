@@ -375,7 +375,7 @@ menuButton.addEventListener("click", () => {
 mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuButton.setAttribute("aria-expanded", "false");
-    mobileMenu.classList.remove("open", !open);
+    mobileMenu.classList.remove("open");
   });
 });
 
