@@ -1,0 +1,59 @@
+name: Add contact logo
+
+on:
+  push:
+    branches:
+      - agent/tamil-natural-review
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/tamil-natural-review
+      - name: Add logo to contact block
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          html = Path('index.html')
+          source = html.read_text(encoding='utf-8')
+          old = '<p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2><p>Tamilischer Kulturverein Krefeld e.V.</p>'
+          new = '<p class="section-kicker">Besucht uns</p><h2>Kontakt und Anfahrt</h2><img class="contact-logo" src="assets/logo.webp" alt="Logo des Sri Nagapoosani Ambaal Tempels Krefeld" /><p class="contact-association">Tamilischer Kulturverein Krefeld e.V.</p>'
+          if old not in source:
+              raise SystemExit('Contact block pattern not found')
+          html.write_text(source.replace(old, new, 1), encoding='utf-8')
+
+          css = Path('styles.css')
+          styles = css.read_text(encoding='utf-8')
+          anchor = '.contact-grid p { color: var(--muted); }'
+          addition = '''.contact-grid p { color: var(--muted); }
+.contact-logo {
+  width: 82px;
+  height: 82px;
+  margin: 24px 0 16px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: 0 10px 28px rgba(13, 43, 42, 0.10);
+}
+.contact-association { margin: 0; font-weight: 600; }'''
+          if anchor not in styles:
+              raise SystemExit('Contact CSS anchor not found')
+          css.write_text(styles.replace(anchor, addition, 1), encoding='utf-8')
+          PY
+      - name: Commit contact logo
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Add logo to contact section"
+          git push origin HEAD:agent/tamil-natural-review
