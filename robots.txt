@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagapoosani-kovil-krefeld.github.io/sitemap.xml
