@@ -720,3 +720,12 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* Tamil contact heading: preserve glyph clearance and underline spacing */
+html[lang="ta"] .contact-section h2 {
+  line-height: 1.16;
+}
+
+html[lang="ta"] .contact-section h2::after {
+  margin-top: 18px;
+}
