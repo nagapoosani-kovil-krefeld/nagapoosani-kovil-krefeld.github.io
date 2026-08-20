@@ -70,3 +70,4 @@ jobs:
           git add -- script.js index.html
           git commit -m "Prioritize Apple Maps on iPhone"
           git push origin main
+      # retrigger
