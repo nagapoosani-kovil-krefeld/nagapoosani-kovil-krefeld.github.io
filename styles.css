@@ -552,9 +552,11 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
 .contact-section h2 { font-size: clamp(30px, 3vw, 42px); }
 .contact-section h2::after { width: 48px; margin-top: 14px; }
 .contact-grid { display: grid; grid-template-columns: 1.25fr 0.9fr auto; align-items: end; gap: 60px; }
+.contact-grid > div:first-child { width: min(560px, 100%); }
+.contact-grid > div:first-child > p:not(.section-kicker) { text-align: center; }
 .contact-grid p { color: var(--muted); }
 .contact-logo { display: block; width: 82px; height: 82px; object-fit: contain; margin: 24px auto 16px; border-radius: 50%; background: rgba(255,253,248,.78); box-shadow: 0 10px 28px rgba(13,43,42,.10); }
-.social-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 25px; }
+.social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 25px; }
 .social-links a {
   min-height: 39px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
   color: var(--deep); border: 1px solid rgba(198, 155, 75, 0.52); background: rgba(255, 253, 248, 0.68);
