@@ -105,7 +105,7 @@ const tamilText = {
   "· Tempel": "· ஆலயம்",
   "· Tempelverwalterin": "· ஆலய நிர்வாகி",
   "· Tempelpriester": "· ஆலயக் குரு",
-  "Route öffnen": "வருகை வழியைப் பார்க்க",
+  "Route öffnen": "ஆலயத்திற்கு வழிகாட்டி",
   "Impressum": "சட்ட அறிவிப்பு",
   "Datenschutz": "தனியுரிமை"
 };
