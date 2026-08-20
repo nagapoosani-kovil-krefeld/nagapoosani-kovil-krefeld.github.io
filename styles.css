@@ -550,7 +550,7 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
 .contact-section { background: #f7f1e6; }
 .contact-section .section-kicker { margin-bottom: 14px; }
 .contact-section h2 { font-size: clamp(30px, 3vw, 42px); }
-.contact-section h2::after { width: 48px; margin-top: 14px; }
+.contact-section h2::after { display: none; }
 .contact-grid { display: grid; grid-template-columns: 1.25fr 0.9fr auto; align-items: end; gap: 60px; }
 .contact-grid > div:first-child { width: min(560px, 100%); }
 .contact-grid > div:first-child > p:not(.section-kicker) { text-align: center; }
