@@ -55,7 +55,7 @@ const tamilText = {
   "Mit Vertrauen und Hingabe": "நம்பிக்கையோடும் பக்தியோடும்",
   "Am Empfang erhältlich": "வரவேற்பிடத்தில் தெரிவு செய்யலாம்",
   "Gemeinsam feiern": "ஒன்றிணைந்து வழிபடுவோம்",
-  "Pooja-Zeiten und Veranstaltungen": "பூஜை நேரங்களும் நிகழ்வுகளும்",
+  "Pooja-Zeiten und Veranstaltungen": "எமது ஆலய வழிபாட்டு நேரங்கள்",
   "Tag": "நாள்",
   "Montag": "திங்கட்கிழமை",
   "Dienstag": "செவ்வாய்க்கிழமை",
