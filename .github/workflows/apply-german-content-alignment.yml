@@ -1,4 +1,4 @@
-name: Apply German content alignment
+name: Fix duplicated German Pooja text
 
 on:
   push:
@@ -10,69 +10,45 @@ on:
 permissions:
   contents: write
 
-# corrected trigger
 jobs:
-  update:
+  fix:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Align approved German content
+      - name: Remove duplicated German Pooja sentences
         shell: python
         run: |
           from pathlib import Path
           import re
 
+          duplicated = 'Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam.'
+          clean = 'Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam.'
+
           index = Path('index.html')
           html = index.read_text(encoding='utf-8')
-          script = Path('script.js')
-          js = script.read_text(encoding='utf-8')
-
-          html_exact = {
-            '<meta name="description" content="Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft." />': '<meta name="description" content="Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der Verehrung und der Gemeinschaft." />',
-            '<p>Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können bei jedem Abhishekam am Empfang für <strong>2 € Milch erwerben</strong> und diese als Opfergabe bereitstellen.</p>': '<p>Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können am Empfang <strong>für 2 € Milch für das Abhishekam erhalten</strong> und sie als Opfergabe darbringen.</p>',
-            '<p>Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. <strong>Die jeweiligen Beginnzeiten finden Sie im Wochenplan.</strong><span aria-hidden="true">​</span></p>': '<p>Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam. <strong>Die jeweiligen Beginnzeiten finden Sie im Wochenplan.</strong><span aria-hidden="true">​</span></p>'
-          }
-          for old, new in html_exact.items():
-              if old not in html:
-                  raise SystemExit(f'Expected HTML fragment not found: {old[:90]}')
-              html = html.replace(old, new, 1)
-
-          replacements = [
-            ('Ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.', 'Ein Ort des Glaubens, der Verehrung und der Gemeinschaft.'),
-            ('Glaube · Tradition · Gemeinschaft', 'Glaube · Verehrung · Gemeinschaft'),
-            ('Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der tamilisch-hinduistischen Tradition und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. bietet der Tempel unserer Gemeinschaft einen gemeinsamen Ort für Poojas, religiöse Feste und kulturelles Leben. Auch Menschen, die unseren Glauben und unsere Tradition kennenlernen möchten, sind herzlich willkommen.', 'Der Sri Nagapoosani Ambaal Tempel Krefeld ist ein Ort des Gebets, der Gottesverehrung und der Begegnung. Getragen vom Tamilischen Kulturverein Krefeld e.V. finden hier regelmäßige Poojas, besondere Gottesdienste, religiöse Feste und kulturelle Veranstaltungen statt. Menschen aller Generationen kommen hier zusammen, um ihren Glauben zu leben und Gemeinschaft zu erfahren. Auch Gäste sind herzlich willkommen.'),
-            ('Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Sie wird von unserer Gemeinschaft als schützende und segenspendende Göttin verehrt. Durch Gebete, Poojas und gemeinsame Feste bewahren wir unsere Traditionen und geben sie an die nächste Generation weiter.', 'Im Mittelpunkt unseres Tempels steht Sri Nagapoosani Ambaal. Gläubige verehren sie als schützende und segenspendende Göttin und bringen ihre Wünsche, Sorgen und ihren Dank vertrauensvoll vor Ambaal. Sie bitten um Gesundheit, Schutz, innere Ruhe und Wohlergehen für sich und ihre Familien sowie um Frieden, Gerechtigkeit und Zusammenhalt. Durch Abhishekam, Poojas, Archanai und besondere Verehrungen wird dieser Glaube von Generation zu Generation weitergetragen. Einige Angehörige der jüngeren Generation beteiligen sich bereits an den Aufgaben des Tempels und übernehmen schrittweise Verantwortung. Für die Zukunft wünschen wir uns, dass sich weitere junge Menschen anschließen und das religiöse, soziale und gemeinschaftliche Leben des Tempels weitertragen.'),
-            ('Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können bei jedem Abhishekam am Empfang für', 'Beim Abhishekam wird Sri Nagapoosani Ambaal rituell gebadet und verehrt. Gläubige können am Empfang'),
-            ('2 € Milch erwerben', 'für 2 € Milch für das Abhishekam erhalten'),
-            ('und diese als Opfergabe bereitstellen.', 'und sie als Opfergabe darbringen.'),
-            ('Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.', 'Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam. Die jeweiligen Beginnzeiten finden Sie im Wochenplan.'),
-            ('Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt.', 'Im Anschluss an das Abhishekam findet die gemeinsame Pooja statt. Dabei werden Mantras rezitiert sowie Deepa Aradhanai und besondere Verehrungen durchgeführt. Zum Abschluss erhalten die Gläubigen Vibhuti und Prasadam.'),
-            ('Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, tamilisch-hinduistische Tradition, kulturelle Begegnung und unsere Gemeinschaft werden.', 'Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, kulturelle Veranstaltungen und gemeinschaftliches Leben werden.'),
-            ('Damit möchten wir auch für kommende Generationen einen festen Ort schaffen, an dem unser Glaube und unsere Tradition bewahrt und weitergegeben werden können. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.', 'Unser Glaube und das religiöse Leben unseres Tempels sollen auch für kommende Generationen erhalten bleiben. Dafür möchten wir einen dauerhaften spirituellen Mittelpunkt schaffen. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.')
-          ]
-
-          for old, new in replacements:
-              if old in html:
-                  html = html.replace(old, new, 1)
-              if old not in js:
-                  raise SystemExit(f'Expected JS text not found: {old[:90]}')
-              js = js.replace(old, new)
-
+          if duplicated not in html:
+              raise SystemExit('Duplicated German Pooja text not found in index.html')
+          html = html.replace(duplicated, clean, 1)
           html, count = re.subn(r'script\.js\?v=(\d{8})-(\d+)', lambda m: f"script.js?v={m.group(1)}-{int(m.group(2))+1}", html, count=1)
           if count != 1:
               raise SystemExit('Script cache-bust reference not found')
-
           index.write_text(html, encoding='utf-8')
+
+          script = Path('script.js')
+          js = script.read_text(encoding='utf-8')
+          if duplicated not in js:
+              raise SystemExit('Duplicated German Pooja text not found in script.js')
+          js = js.replace(duplicated, clean, 1)
           script.write_text(js, encoding='utf-8')
 
-      - name: Commit approved German copy
+      - name: Commit correction
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- index.html script.js
           git diff --cached --quiet && exit 0
-          git commit -m "Align German content with final temple copy"
+          git commit -m "Fix duplicated German Pooja copy"
           git push origin main
