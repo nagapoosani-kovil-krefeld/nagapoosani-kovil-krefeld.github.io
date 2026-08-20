@@ -340,7 +340,6 @@ html[lang="ta"] .intro-section .split { align-items: start; }
   color: #80601b; border: 1px solid rgba(198, 155, 75, 0.42); background: rgba(255, 253, 248, 0.52);
   font-size: 7px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
 }
-html[lang="ta"] .schedule-row.holy-day strong::after { content: "✦ புனித நாள்"; }
 html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; }
 .schedule-row.holy-day span { color: var(--deep); font-weight: 700; }
 .schedule-note { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
