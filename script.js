@@ -106,6 +106,9 @@ const tamilText = {
   "· Tempelverwalterin": "· ஆலய நிர்வாகி",
   "· Tempelpriester": "· ஆலயக் குரு",
   "Route öffnen": "ஆலயத்திற்கு வழிகாட்டி",
+  "Route planen": "ஆலயத்திற்கு வழிகாட்டி",
+  "Navigation auswählen": "வழிகாட்டி செயலியைத் தேர்ந்தெடுக்கவும்",
+  "Wählen Sie Ihre bevorzugte Karten-App.": "நீங்கள் பயன்படுத்த விரும்பும் வரைபட செயலியைத் தேர்ந்தெடுக்கவும்.",
   "Impressum": "சட்ட அறிவிப்பு",
   "Datenschutz": "தனியுரிமை"
 };
@@ -202,6 +205,9 @@ const englishText = {
   "· Tempelverwalterin": "· Temple Administrator",
   "· Tempelpriester": "· Temple Priest",
   "Route öffnen": "Open Directions",
+  "Route planen": "Get Directions",
+  "Navigation auswählen": "Choose Navigation",
+  "Wählen Sie Ihre bevorzugte Karten-App.": "Choose your preferred maps app.",
   "Impressum": "Legal Notice",
   "Datenschutz": "Privacy Policy"
 };
@@ -246,6 +252,7 @@ const tamilAttributes = {
   "Zwei Tempelpriester während der festlichen Verehrung von Sri Nagapoosani Ambaal": "ஸ்ரீ நாகபூசணி அம்பாளுக்கு விசேட வழிபாடு செய்யும் இரு ஆலயக் குருக்கள்",
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் நாதஸ்வரம் மற்றும் தவில் இசைக்கலைஞர்கள்",
   "Tempelgemeinschaft während eines besonderen Festtages": "விசேட திருவிழாவின் போது ஆலயச் சமூகம்",
+  "Routenplaner schließen": "வழிகாட்டியை மூடவும்",
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
 };
 
@@ -289,6 +296,7 @@ const englishAttributes = {
   "Zwei Tempelpriester während der festlichen Verehrung von Sri Nagapoosani Ambaal": "Two temple priests during the festival worship of Sri Nagapoosani Ambaal",
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "Musicians playing Nadaswaram and Thavil at the Krefeld temple",
   "Tempelgemeinschaft während eines besonderen Festtages": "Temple community during a special festival day",
+  "Routenplaner schließen": "Close route planner",
   "Rechtliche Hinweise": "Legal information"
 };
 
@@ -380,6 +388,21 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
 
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.language));
+});
+
+const routePlannerButton = document.querySelector("[data-route-planner]");
+const routeDialog = document.querySelector("[data-route-dialog]");
+const routeDialogClose = document.querySelector("[data-route-close]");
+
+routePlannerButton?.addEventListener("click", () => {
+  if (routeDialog && !routeDialog.open) routeDialog.showModal();
+});
+routeDialogClose?.addEventListener("click", () => routeDialog?.close());
+routeDialog?.addEventListener("click", (event) => {
+  if (event.target === routeDialog) routeDialog.close();
+});
+routeDialog?.querySelectorAll(".route-options a").forEach((link) => {
+  link.addEventListener("click", () => routeDialog.close());
 });
 
 function updateLightbox(index) {
