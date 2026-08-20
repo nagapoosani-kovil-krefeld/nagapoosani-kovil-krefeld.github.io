@@ -1,0 +1,52 @@
+name: Update Tamil gallery wording
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-tamil-gallery.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update Tamil gallery text only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+            '"Einblicke": "ஆலயத் தரிசனங்கள்"': '"Einblicke": "ஆலயக் காட்சிகள்"',
+            '"Momente des Glaubens, der Hingabe und unserer lebendigen Tempelgemeinschaft.": "நம்பிக்கை, பக்தி மற்றும் எமது உயிரோட்டமான ஆலயச் சமூகத்தின் அழகிய தருணங்கள்."': '"Momente des Glaubens, der Hingabe und unserer lebendigen Tempelgemeinschaft.": "இறைநம்பிக்கை, பக்தி மற்றும் எமது ஆலயக் குடும்பத்தின் அழகிய தருணங்கள்."',
+            '"Weitere Momente aus unserem Tempel": "எமது ஆலயத்தின் மேலும் சில தருணங்கள்"': '"Weitere Momente aus unserem Tempel": "எமது ஆலயத்தின் மேலும் சில காட்சிகள்"',
+            '"Sri Nagapoosani Ambaal im Moolasthanam": "சந்தனக்காப்பு அலங்காரத்தில் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்"': '"Sri Nagapoosani Ambaal im Moolasthanam": "மூலஸ்தானத்தில் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்"',
+            '"Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels": "ஆலயத்திற்குள் வந்தவுடன் அருள்பாலிக்கும் ஸ்ரீ நாகபூசணி அம்பாள்"': '"Sri Nagapoosani Ambaal – der erste Blick beim Betreten des Tempels": "ஆலயத்தில் முதலில் தரிசிக்கப்படும் ஸ்ரீ நாகபூசணி அம்பாள்"',
+            '"Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "ஆலயத்திற்குள் நுழையும் அடியவர்கள் முதலில் இந்த அம்பாளைத் தரிசிப்பார்கள். இங்குதான் அபிஷேகம் நடைபெறும்."': '"Diese Göttin sehen Besucherinnen und Besucher beim Betreten des Tempels. Hier findet das Abhishekam statt.": "ஆலயத்திற்குள் நுழையும் போது அடியவர்கள் முதலில் அம்பாளை இங்கே தரிசிக்கிறார்கள். இவ்விடத்திலேயே அபிஷேகம் நடைபெறுகிறது."',
+            '"Besondere Festtage": "விசேட திருவிழாக்கள்"': '"Besondere Festtage": "விசேட திருநாட்கள்"',
+            '"Sri Nagapoosani Ambaal an Festtagen": "திருவிழாக்களில் ஸ்ரீ நாகபூசணி அம்பாள்"': '"Sri Nagapoosani Ambaal an Festtagen": "விசேட திருநாட்களில் ஸ்ரீ நாகபூசணி அம்பாள்"',
+            '"Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "விசேட புனித நாட்களிலும் தேர்த்திருவிழா உள்ளிட்ட நிகழ்வுகளிலும் இந்த அம்பாள் திருவுருவம் பவனியாக எடுத்துச் செல்லப்படும்."': '"Diese Darstellung der Göttin wird an besonderen heiligen Tagen und unter anderem beim Theer getragen.": "விசேட திருநாட்களிலும் தேர்த்திருவிழா போன்ற நிகழ்வுகளிலும் இந்த அம்பாள் திருவுருவம் பவனியாக எடுத்துச் செல்லப்படுகிறது."',
+            '"Pooja im Tempel": "ஆலயத்தில் பூஜை"': '"Pooja im Tempel": "ஆலயப் பூஜை"',
+            '"Festliche Verehrung": "விசேட திருவிழா வழிபாடு"': '"Festliche Verehrung": "திருவிழா வழிபாடு"',
+            '"Gemeinschaft am Festtag": "திருவிழாவில் எமது சமூகம்"': '"Gemeinschaft am Festtag": "திருநாளில் எமது ஆலயச் சமூகம்"'
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected source not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit Tamil gallery update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add script.js
+          git commit -m 'Refine Tamil gallery wording'
+          git push origin main
