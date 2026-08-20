@@ -1,0 +1,40 @@
+name: Remove contact heading divider
+
+on:
+  push:
+    branches:
+      - agent/tamil-natural-review
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/tamil-natural-review
+      - name: Remove contact section divider
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('styles.css')
+          css = path.read_text(encoding='utf-8')
+          old = '.contact-section h2::after { width: 48px; margin-top: 14px; }'
+          new = '.contact-section h2::after { display: none; }'
+          if old not in css:
+              raise SystemExit('Contact heading divider rule not found')
+          path.write_text(css.replace(old, new, 1), encoding='utf-8')
+          PY
+          git rm .github/workflows/remove-contact-heading-line.yml
+      - name: Commit change
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css .github/workflows/remove-contact-heading-line.yml
+          git commit -m "Remove contact heading divider"
+          git push origin HEAD:agent/tamil-natural-review
