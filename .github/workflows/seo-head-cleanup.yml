@@ -1,0 +1,40 @@
+name: Apply SEO head metadata
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/seo-head-cleanup.yml
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add SEO metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          marker = '    <title>Sri Nagapoosani Ambaal Tempel Krefeld</title>\n'
+          if 'application/ld+json' not in s:
+              block = '''    <title>Sri Nagapoosani Ambaal Tempel Krefeld</title>\n    <meta name="robots" content="index, follow, max-image-preview:large" />\n    <link rel="canonical" href="https://nagapoosani-kovil-krefeld.github.io/" />\n    <meta property="og:type" content="website" />\n    <meta property="og:site_name" content="Sri Nagapoosani Ambaal Tempel Krefeld" />\n    <meta property="og:title" content="Sri Nagapoosani Ambaal Tempel Krefeld" />\n    <meta property="og:description" content="Sri Nagapoosani Ambaal Tempel Krefeld – ein Ort des Glaubens, der Verehrung und der Gemeinschaft." />\n    <meta property="og:url" content="https://nagapoosani-kovil-krefeld.github.io/" />\n    <meta property="og:image" content="https://nagapoosani-kovil-krefeld.github.io/assets/sri-nagapoosani-ambaal.webp" />\n    <meta property="og:image:alt" content="Sri Nagapoosani Ambaal im Tempel Krefeld" />\n    <meta property="og:locale" content="de_DE" />\n    <meta property="og:locale:alternate" content="ta_LK" />\n    <meta property="og:locale:alternate" content="en_GB" />\n    <meta name="twitter:card" content="summary_large_image" />\n    <meta name="twitter:title" content="Sri Nagapoosani Ambaal Tempel Krefeld" />\n    <meta name="twitter:description" content="Ein Ort des Glaubens, der Verehrung und der Gemeinschaft in Krefeld." />\n    <meta name="twitter:image" content="https://nagapoosani-kovil-krefeld.github.io/assets/sri-nagapoosani-ambaal.webp" />\n    <script type="application/ld+json">\n    {\n      "@context": "https://schema.org",\n      "@type": "HinduTemple",\n      "name": "Sri Nagapoosani Ambaal Tempel Krefeld",\n      "url": "https://nagapoosani-kovil-krefeld.github.io/",\n      "image": "https://nagapoosani-kovil-krefeld.github.io/assets/sri-nagapoosani-ambaal.webp",\n      "telephone": "+49 2151 5650045",\n      "address": {\n        "@type": "PostalAddress",\n        "streetAddress": "Elisabethstraße 103–105",\n        "postalCode": "47799",\n        "addressLocality": "Krefeld",\n        "addressCountry": "DE"\n      },\n      "sameAs": [\n        "https://www.instagram.com/srinagapoosaniambaal_krefeld/",\n        "https://www.facebook.com/tempelkrefeld/",\n        "https://www.youtube.com/@SriNagapoosaniAmmanTempelKrefe"\n      ],\n      "parentOrganization": {\n        "@type": "Organization",\n        "name": "Tamilischer Kulturverein Krefeld e.V."\n      }\n    }\n    </script>\n'''
+              if marker not in s:
+                  raise SystemExit('title marker not found')
+              s = s.replace(marker, block, 1)
+              p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Add search and social metadata"
+            git push origin main
+          fi
