@@ -1,0 +1,47 @@
+name: Update Tamil first visit wording
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-tamil-first-visit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update Tamil first visit text only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+            '"Offen für alle": "அனைவருக்கும் திறந்தது"': '"Offen für alle": "அனைவரும் அன்புடன் வரவேற்கப்படுகிறார்கள்"',
+            '"Hinweise für den ersten Besuch": "முதல் வருகைக்கான வழிகாட்டல்கள்"': '"Hinweise für den ersten Besuch": "முதல் முறை வருபவர்களுக்கு"',
+            '"Niemand muss die Abläufe bereits kennen. Besucherinnen und Besucher können ruhig beobachten und respektvoll teilnehmen.": "ஆலய வழிபாட்டு முறைகளை முன்கூட்டியே அறிந்திருக்க வேண்டிய அவசியமில்லை. வருகையாளர்கள் அமைதியாகக் கவனித்து, மரியாதையுடன் கலந்துகொள்ளலாம்."': '"Niemand muss die Abläufe bereits kennen. Besucherinnen und Besucher können ruhig beobachten und respektvoll teilnehmen.": "ஆலய வழிபாட்டு முறைகள் தெரியாவிட்டாலும் கவலைப்பட தேவையில்லை. அமைதியாகக் கவனித்து, மரியாதையுடன் வழிபாட்டில் கலந்து கொள்ளலாம்."',
+            '"Alle Menschen sind herzlich willkommen – unabhängig von Herkunft oder Religion.": "இனம் அல்லது மதம் பாராமல் அனைவரும் அன்புடன் வரவேற்கப்படுகிறார்கள்."': '"Alle Menschen sind herzlich willkommen – unabhängig von Herkunft oder Religion.": "பின்னணி அல்லது மத வேறுபாடு பாராமல் அனைவரும் அன்புடன் வரவேற்கப்படுகிறார்கள்."',
+            '"Bitte die Schuhe vor dem Betreten des Gebetsbereichs ausziehen.": "வழிபாட்டுப் பகுதிக்குள் நுழைவதற்கு முன் காலணிகளைக் கழற்றவும்."': '"Bitte die Schuhe vor dem Betreten des Gebetsbereichs ausziehen.": "வழிபாட்டு இடத்திற்குள் செல்லும் முன் காலணிகளை வெளியே கழற்றி வைக்கவும்."',
+            '"Bitte saubere und respektvolle Kleidung tragen.": "சுத்தமான மற்றும் மரியாதையான உடைகளை அணியவும்."': '"Bitte saubere und respektvolle Kleidung tragen.": "ஆலயத்திற்கேற்ற சுத்தமான உடை அணியவும்."',
+            '"Bei Fragen hilft die Tempelverwaltung beziehungsweise der Empfang gerne weiter.": "கேள்விகள் இருந்தால் ஆலய நிர்வாகத்தையோ வரவேற்புப் பகுதியையோ அணுகலாம்."': '"Bei Fragen hilft die Tempelverwaltung beziehungsweise der Empfang gerne weiter.": "உதவி தேவைப்பட்டால் ஆலய நிர்வாகத்தையோ வரவேற்பிடத்தையோ அணுகலாம்."'
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected source not found: {old}')
+              s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit Tamil first visit update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add script.js
+          git commit -m 'Refine Tamil first visit wording'
+          git push origin main
