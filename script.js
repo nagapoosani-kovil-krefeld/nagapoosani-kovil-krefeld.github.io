@@ -24,7 +24,7 @@ const tamilText = {
   "Erster Besuch": "முதல் வருகை",
   "வணக்கம் · Herzlich willkommen": "வணக்கம் · அன்புடன் வரவேற்கிறோம்",
   "Sri Nagapoosani Ambaal Tempel Krefeld": "ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் கிரேபில்ட்",
-  "Ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.": "நம்பிக்கை, தமிழ் இந்து பாரம்பரியம் மற்றும் சமூக ஒற்றுமைக்கான ஓர் இடம்.",
+  "Ein Ort des Glaubens, der tamilisch-hinduistischen Tradition und der Gemeinschaft.": "இறைவழிபாடும் சமூக ஒற்றுமையும் நிறைந்த புனிதத் தலம்.",
   "Wir heißen alle Menschen herzlich willkommen, unseren Tempel kennenzulernen, an Poojas teilzunehmen und unsere Gemeinschaft zu erleben.": "எமது ஆலயத்தை அறிந்துகொள்ளவும், பூஜைகளில் கலந்துகொள்ளவும், எமது சமூகத்தின் ஆன்மீக அனுபவத்தைப் பகிர்ந்துகொள்ளவும் அனைவரையும் அன்புடன் வரவேற்கிறோம்.",
   "Unseren Tempel entdecken": "எமது ஆலயத்தை அறிந்துகொள்ளுங்கள்",
   "Kontakt & Anfahrt": "தொடர்பு மற்றும் வழிகாட்டல்",
