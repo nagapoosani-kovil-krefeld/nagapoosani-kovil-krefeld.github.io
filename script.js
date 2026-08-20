@@ -394,7 +394,16 @@ const routePlannerButton = document.querySelector("[data-route-planner]");
 const routeDialog = document.querySelector("[data-route-dialog]");
 const routeDialogClose = document.querySelector("[data-route-close]");
 
+function updateRouteOptionsForDevice() {
+  if (!routeDialog) return;
+  const ua = navigator.userAgent || "";
+  const isAndroid = /Android/i.test(ua);
+  const appleMapsLink = routeDialog.querySelector('a[href*="maps.apple.com"]');
+  if (appleMapsLink) appleMapsLink.hidden = isAndroid;
+}
+
 routePlannerButton?.addEventListener("click", () => {
+  updateRouteOptionsForDevice();
   if (routeDialog && !routeDialog.open) routeDialog.showModal();
 });
 routeDialogClose?.addEventListener("click", () => routeDialog?.close());
