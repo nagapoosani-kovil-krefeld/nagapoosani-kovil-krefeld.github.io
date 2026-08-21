@@ -127,7 +127,7 @@ const tamilText = {
   "Navigation auswählen": "வழிகாட்டி செயலியைத் தேர்ந்தெடுக்கவும்",
   "Wählen Sie Ihre bevorzugte Karten-App.": "நீங்கள் பயன்படுத்த விரும்பும் வரைபட செயலியைத் தேர்ந்தெடுக்கவும்.",
   "Impressum": "சட்ட அறிவிப்பு",
-  "Datenschutz": "தனியுரிமை"
+  "Datenschutz": "தனியுரிமை",
   "Varalakshmi Pooja 2026": "வரலட்சுமி பூஜை 2026",
   "Festlich geschmückte Ambaal": "விழாக்கோலத்தில் அம்பாள்",
   "Ambaal im Varalakshmi-Alankaram": "வரலட்சுமி அலங்காரத்தில் அம்பாள்",
@@ -255,7 +255,7 @@ const englishText = {
   "Navigation auswählen": "Choose Navigation",
   "Wählen Sie Ihre bevorzugte Karten-App.": "Choose your preferred maps app.",
   "Impressum": "Legal Notice",
-  "Datenschutz": "Privacy Policy"
+  "Datenschutz": "Privacy Policy",
   "Varalakshmi Pooja 2026": "Varalakshmi Pooja 2026",
   "Festlich geschmückte Ambaal": "Ambaal in Festive Adornment",
   "Ambaal im Varalakshmi-Alankaram": "Ambaal in Varalakshmi Adornment",
@@ -311,7 +311,7 @@ const tamilAttributes = {
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் நாதஸ்வரம் மற்றும் தவில் இசைக்கலைஞர்கள்",
   "Tempelgemeinschaft während eines besonderen Festtages": "விசேட திருவிழாவின் போது ஆலயச் சமூகம்",
   "Routenplaner schließen": "வழிகாட்டியை மூடவும்",
-  "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
+  "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்",
   "Festlich geschmückte Ambaal groß öffnen": "விழாக்கோலத்தில் அம்பாள் படத்தைப் பெரிதாகத் திறக்கவும்",
   "Sri Nagapoosani Ambaal festlich geschmückt zur Varalakshmi Pooja 2026": "வரலட்சுமி பூஜை 2026 விழாக்கோலத்தில் ஸ்ரீ நாகபூசணி அம்பாள்",
   "Ambaal im Varalakshmi-Alankaram groß öffnen": "வரலட்சுமி அலங்காரத்தில் அம்பாள் படத்தைப் பெரிதாகத் திறக்கவும்",
@@ -377,7 +377,7 @@ const englishAttributes = {
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "Musicians playing Nadaswaram and Thavil at the Krefeld temple",
   "Tempelgemeinschaft während eines besonderen Festtages": "Temple community during a special festival day",
   "Routenplaner schließen": "Close route planner",
-  "Rechtliche Hinweise": "Legal information"
+  "Rechtliche Hinweise": "Legal information",
   "Festlich geschmückte Ambaal groß öffnen": "Open Ambaal in Festive Adornment in a large view",
   "Sri Nagapoosani Ambaal festlich geschmückt zur Varalakshmi Pooja 2026": "Sri Nagapoosani Ambaal in festive adornment for Varalakshmi Pooja 2026",
   "Ambaal im Varalakshmi-Alankaram groß öffnen": "Open Ambaal in Varalakshmi Adornment in a large view",
