@@ -128,6 +128,18 @@ const tamilText = {
   "Wählen Sie Ihre bevorzugte Karten-App.": "நீங்கள் பயன்படுத்த விரும்பும் வரைபட செயலியைத் தேர்ந்தெடுக்கவும்.",
   "Impressum": "சட்ட அறிவிப்பு",
   "Datenschutz": "தனியுரிமை"
+  "Varalakshmi Pooja 2026": "வரலட்சுமி பூஜை 2026",
+  "Festlich geschmückte Ambaal": "விழாக்கோலத்தில் அம்பாள்",
+  "Ambaal im Varalakshmi-Alankaram": "வரலட்சுமி அலங்காரத்தில் அம்பாள்",
+  "Lichter und Opfergaben": "தீபங்களும் காணிக்கைகளும்",
+  "Vorbereitete Opfergaben": "அன்புடன் ஆயத்தப்படுத்திய காணிக்கைகள்",
+  "Deepa Aradhanai zur Varalakshmi Pooja": "வரலட்சுமி பூஜை தீபாராதனை",
+  "Heiliges Licht": "புனித தீப ஒளி",
+  "Gemeinsames Gebet": "ஒன்றிணைந்த பிரார்த்தனை",
+  "Verehrung in der Gemeinschaft": "சமூகத்துடன் வழிபாடு",
+  "Varalakshmi-Pooja in Gemeinschaft": "சமூக வரலட்சுமி பூஜை",
+  "Verbunden im Glauben": "இறைநம்பிக்கையில் ஒன்றிணைந்து",
+  "Tempelgemeinschaft am Festtag": "விழா நாளில் ஆலயக் குடும்பம்",
 };
 
 const englishText = {
@@ -244,6 +256,18 @@ const englishText = {
   "Wählen Sie Ihre bevorzugte Karten-App.": "Choose your preferred maps app.",
   "Impressum": "Legal Notice",
   "Datenschutz": "Privacy Policy"
+  "Varalakshmi Pooja 2026": "Varalakshmi Pooja 2026",
+  "Festlich geschmückte Ambaal": "Ambaal in Festive Adornment",
+  "Ambaal im Varalakshmi-Alankaram": "Ambaal in Varalakshmi Adornment",
+  "Lichter und Opfergaben": "Lamps and Offerings",
+  "Vorbereitete Opfergaben": "Offerings Prepared with Devotion",
+  "Deepa Aradhanai zur Varalakshmi Pooja": "Deepa Aradhanai for Varalakshmi Pooja",
+  "Heiliges Licht": "Sacred Lamplight",
+  "Gemeinsames Gebet": "Prayer in Community",
+  "Verehrung in der Gemeinschaft": "Worship in Community",
+  "Varalakshmi-Pooja in Gemeinschaft": "Varalakshmi Pooja in Community",
+  "Verbunden im Glauben": "United in Faith",
+  "Tempelgemeinschaft am Festtag": "Temple Community on the Festival Day",
 };
 
 const tamilAttributes = {
@@ -288,6 +312,28 @@ const tamilAttributes = {
   "Tempelgemeinschaft während eines besonderen Festtages": "விசேட திருவிழாவின் போது ஆலயச் சமூகம்",
   "Routenplaner schließen": "வழிகாட்டியை மூடவும்",
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
+  "Festlich geschmückte Ambaal groß öffnen": "விழாக்கோலத்தில் அம்பாள் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Sri Nagapoosani Ambaal festlich geschmückt zur Varalakshmi Pooja 2026": "வரலட்சுமி பூஜை 2026 விழாக்கோலத்தில் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Ambaal im Varalakshmi-Alankaram groß öffnen": "வரலட்சுமி அலங்காரத்தில் அம்பாள் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Sri Nagapoosani Ambaal im Varalakshmi-Alankaram im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் வரலட்சுமி அலங்காரத்தில் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Lichter und Opfergaben groß öffnen": "தீபங்களும் காணிக்கைகளும் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Festlich geschmückte Ambaal mit Lichtern und Opfergaben zur Varalakshmi Pooja": "வரலட்சுமி பூஜையில் தீபங்களும் காணிக்கைகளும் சூழ விழாக்கோலத்தில் அம்பாள்",
+  "Vorbereitete Opfergaben groß öffnen": "அன்புடன் ஆயத்தப்படுத்திய காணிக்கைகள் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Reihen liebevoll vorbereiteter Opfergaben und brennender Tempellampen": "அன்புடன் ஆயத்தப்படுத்திய காணிக்கைகளும் எரியும் ஆலய தீபங்களும்",
+  "Deepa Aradhanai zur Varalakshmi Pooja groß öffnen": "வரலட்சுமி பூஜை தீபாராதனை படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Tempelpriester bei der Deepa Aradhanai vor Sri Nagapoosani Ambaal": "ஸ்ரீ நாகபூசணி அம்பாள் முன் தீபாராதனை செய்யும் ஆலயக் குரு",
+  "Heiliges Licht groß öffnen": "புனித தீப ஒளி படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Brennende traditionelle Tempellampe während der Varalakshmi Pooja": "வரலட்சுமி பூஜையின் போது எரியும் பாரம்பரிய ஆலய தீபம்",
+  "Gemeinsames Gebet groß öffnen": "ஒன்றிணைந்த பிரார்த்தனை படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Gläubige beim gemeinsamen Gebet während der Varalakshmi Pooja": "வரலட்சுமி பூஜையில் ஒன்றிணைந்து பிரார்த்திக்கும் பக்தர்கள்",
+  "Verehrung in der Gemeinschaft groß öffnen": "சமூகத்துடன் வழிபாடு படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Gläubige mit Opfergaben bei der gemeinsamen Varalakshmi Pooja": "சமூக வரலட்சுமி பூஜையில் காணிக்கைகளுடன் பக்தர்கள்",
+  "Varalakshmi-Pooja in Gemeinschaft groß öffnen": "சமூக வரலட்சுமி பூஜை படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Tempelgemeinschaft während der Varalakshmi Pooja im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் வரலட்சுமி பூஜையின் போது ஆலயக் குடும்பம்",
+  "Verbunden im Glauben groß öffnen": "இறைநம்பிக்கையில் ஒன்றிணைந்து படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Gläubige in gemeinsamer Andacht während der Varalakshmi Pooja": "வரலட்சுமி பூஜையில் ஒன்றிணைந்து வழிபடும் பக்தர்கள்",
+  "Tempelgemeinschaft am Festtag groß öffnen": "விழா நாளில் ஆலயக் குடும்பம் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Familien und Gläubige versammeln sich zur Varalakshmi Pooja im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் வரலட்சுமி பூஜைக்காக ஒன்றுகூடிய குடும்பங்களும் பக்தர்களும்",
 };
 
 const englishAttributes = {
@@ -332,6 +378,28 @@ const englishAttributes = {
   "Tempelgemeinschaft während eines besonderen Festtages": "Temple community during a special festival day",
   "Routenplaner schließen": "Close route planner",
   "Rechtliche Hinweise": "Legal information"
+  "Festlich geschmückte Ambaal groß öffnen": "Open Ambaal in Festive Adornment in a large view",
+  "Sri Nagapoosani Ambaal festlich geschmückt zur Varalakshmi Pooja 2026": "Sri Nagapoosani Ambaal in festive adornment for Varalakshmi Pooja 2026",
+  "Ambaal im Varalakshmi-Alankaram groß öffnen": "Open Ambaal in Varalakshmi Adornment in a large view",
+  "Sri Nagapoosani Ambaal im Varalakshmi-Alankaram im Tempel Krefeld": "Sri Nagapoosani Ambaal in Varalakshmi adornment at the Krefeld temple",
+  "Lichter und Opfergaben groß öffnen": "Open Lamps and Offerings in a large view",
+  "Festlich geschmückte Ambaal mit Lichtern und Opfergaben zur Varalakshmi Pooja": "Festively adorned Ambaal with lamps and offerings for Varalakshmi Pooja",
+  "Vorbereitete Opfergaben groß öffnen": "Open Offerings Prepared with Devotion in a large view",
+  "Reihen liebevoll vorbereiteter Opfergaben und brennender Tempellampen": "Rows of lovingly prepared offerings and glowing temple lamps",
+  "Deepa Aradhanai zur Varalakshmi Pooja groß öffnen": "Open Deepa Aradhanai for Varalakshmi Pooja in a large view",
+  "Tempelpriester bei der Deepa Aradhanai vor Sri Nagapoosani Ambaal": "Temple priest performing Deepa Aradhanai before Sri Nagapoosani Ambaal",
+  "Heiliges Licht groß öffnen": "Open Sacred Lamplight in a large view",
+  "Brennende traditionelle Tempellampe während der Varalakshmi Pooja": "A glowing traditional temple lamp during Varalakshmi Pooja",
+  "Gemeinsames Gebet groß öffnen": "Open Prayer in Community in a large view",
+  "Gläubige beim gemeinsamen Gebet während der Varalakshmi Pooja": "Devotees praying together during Varalakshmi Pooja",
+  "Verehrung in der Gemeinschaft groß öffnen": "Open Worship in Community in a large view",
+  "Gläubige mit Opfergaben bei der gemeinsamen Varalakshmi Pooja": "Devotees with offerings during the community Varalakshmi Pooja",
+  "Varalakshmi-Pooja in Gemeinschaft groß öffnen": "Open Varalakshmi Pooja in Community in a large view",
+  "Tempelgemeinschaft während der Varalakshmi Pooja im Tempel Krefeld": "Temple community during Varalakshmi Pooja at the Krefeld temple",
+  "Verbunden im Glauben groß öffnen": "Open United in Faith in a large view",
+  "Gläubige in gemeinsamer Andacht während der Varalakshmi Pooja": "Devotees united in prayer during Varalakshmi Pooja",
+  "Tempelgemeinschaft am Festtag groß öffnen": "Open Temple Community on the Festival Day in a large view",
+  "Familien und Gläubige versammeln sich zur Varalakshmi Pooja im Tempel Krefeld": "Families and devotees gathered for Varalakshmi Pooja at the Krefeld temple",
 };
 
 const textNodes = [];

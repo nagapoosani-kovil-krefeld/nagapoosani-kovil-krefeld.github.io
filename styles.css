@@ -480,6 +480,23 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
   pointer-events: none;
   background: linear-gradient(180deg, transparent 52%, rgba(7, 29, 28, 0.88));
 }
+
+.gallery-slide small {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  left: 14px;
+  max-width: calc(100% - 28px);
+  padding: 7px 10px 6px;
+  color: var(--deep);
+  border: 1px solid rgba(197, 151, 65, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 250, 239, 0.92);
+  box-shadow: 0 5px 16px rgba(7, 29, 28, 0.12);
+  font: 700 11px/1.15 "Cinzel", serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 .gallery-slide span {
   position: absolute;
   z-index: 1;
