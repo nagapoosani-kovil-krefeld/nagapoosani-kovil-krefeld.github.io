@@ -578,9 +578,11 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
 .support-card > p:not(.support-label, .allocation-note) { margin: 22px 0 0; color: var(--muted); font-size: 13px; line-height: 1.78; }
 .support-card > p + p:not(.support-label) { margin-top: 13px; }
 .allocation-note {
-  margin: 18px 0 0; padding: 15px 17px; color: var(--deep-soft);
-  border-left: 3px solid var(--gold); background: rgba(198, 155, 75, 0.1);
-  font-size: 12px; line-height: 1.65;
+  margin: 18px 0 0; padding: 16px 18px; color: var(--deep);
+  border: 1px solid rgba(166, 45, 45, 0.18); border-left: 4px solid var(--red);
+  background: linear-gradient(135deg, #ead39a, #f7ead0);
+  box-shadow: 0 9px 22px rgba(13, 43, 42, 0.08);
+  font-size: 12px; font-weight: 600; line-height: 1.65;
 }
 .donation-purpose {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 18px;
