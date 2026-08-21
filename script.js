@@ -99,13 +99,6 @@ const tamilText = {
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "எமது ஸ்ரீ நாகபூசணி அம்பாள் ஆலயம் தற்போது கிறிபில்ட் நகர மத்தியில் உள்ள ஒரு வாடகைக் கட்டிடத்தில் இயங்கி வருகிறது. நகர மத்தியில் அமைந்துள்ளதால் பக்தர்கள் ஆலயத்தை எளிதாக அடைய முடிகிறது. இருப்பினும் வாகன நிறுத்துமிடங்களின் பற்றாக்குறையும், வளர்ந்து வரும் எமது ஆலயக் குடும்பத்தின் தேவைகளும், பெரிய சமய மற்றும் திருவிழா நிகழ்வுகளை நடத்துவதற்கான இடவசதி குறைபாடும் எதிர்காலத்தை நோக்கி புதிய இடம் ஒன்றின் தேவையை உணர்த்துகின்றன. இருந்தாலும் தற்போதைய இந்த ஆலயம் எமது சமூகத்தின் ஆன்மிக வாழ்வில் மிக முக்கியமான இடத்தை வகிக்கிறது.",
   "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, kulturelle Veranstaltungen und gemeinschaftliches Leben werden.": "கிறிபில்டில் பொருத்தமான நிலம் ஒன்றைப் பெற்று, அதில் எமக்கென ஒரு சொந்த இந்து ஆலயத்தை அமைப்பதே எமது நீண்டகால கனவாகும். புதிய ஆலயம் பூஜைகள், திருவிழாக்கள், சமய நிகழ்வுகள், கலாசார நிகழ்வுகள் மற்றும் சமூக ஒன்றுகூடல்கள் நடைபெறும் நிரந்தரமான ஆன்மிக இல்லமாக அமைய வேண்டும் என்பதே எமது விருப்பம்.",
   "Unser Glaube und das religiöse Leben unseres Tempels sollen auch für kommende Generationen erhalten bleiben. Dafür möchten wir einen dauerhaften spirituellen Mittelpunkt schaffen. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "எமது இறைநம்பிக்கையும் ஆலய வழிபாடும் வருங்காலத் தலைமுறைகளுக்கும் தொடர்ந்து நிலைத்திருக்க வேண்டும். அதற்கான ஒரு நிரந்தரமான ஆன்மிக மையமாக இந்த புதிய ஆலயம் அமைய வேண்டும் என்று நாம் விரும்புகிறோம். இந்த முயற்சியின் அடுத்தடுத்த கட்டங்கள் மற்றும் முன்னேற்றங்கள் குறித்து எமது பக்தர்களுக்கும் சமூகத்தினருக்கும் தொடர்ந்து தகவல் வழங்கப்படும்.",
-  "Gemeinsam Zukunft gestalten": "ஒன்றிணைந்து எதிர்காலத்தை உருவாக்குவோம்",
-  "Ein Zuhause für kommende Generationen": "வருங்காலத் தலைமுறைகளுக்கான நிரந்தர ஆன்மிக இல்லம்",
-  "Jede Unterstützung bringt uns unserem Wunsch näher, in Krefeld ein geeignetes Grundstück zu erwerben und einen würdevollen, dauerhaften Tempel für Ambaal zu errichten. Wer diesen heiligen Weg begleiten möchte, kann den Verein per Banküberweisung unterstützen.": "கிறிபில்டில் பொருத்தமான நிலத்தை வாங்கி, அம்பாளுக்கென ஒரு நிரந்தரமான மற்றும் கண்ணியமான ஆலயத்தை அமைக்கும் எமது கனவை நோக்கி ஒவ்வொரு ஆதரவும் எம்மை மேலும் முன்னேற்றுகிறது. இந்தப் புனிதப் பயணத்தில் இணைய விரும்புவோர் வங்கிப் பரிமாற்றம் மூலம் சங்கத்திற்கு ஆதரவளிக்கலாம்.",
-  "Kontoinhaber": "கணக்கு வைத்திருப்பவர்",
-  "Verwendungszweck": "பரிமாற்றக் குறிப்பு",
-  "Bitte geben Sie bei der Überweisung den genannten Verwendungszweck an.": "வங்கிப் பரிமாற்றம் செய்யும் போது மேலே குறிப்பிடப்பட்ட பரிமாற்றக் குறிப்பை உள்ளிடவும்.",
-  "Der Verein ist gemeinnützig. Derzeit werden keine Spendenbescheinigungen ausgestellt.": "சங்கம் பொதுநல அமைப்பாக அங்கீகரிக்கப்பட்டுள்ளது. தற்போது நன்கொடைச் சான்றிதழ்கள் வழங்கப்படுவதில்லை.",
   "Besucht uns": "ஆலயத்திற்கு வருகை தாருங்கள்",
   "Kontakt und Anfahrt": "ஆலயத் தொடர்பு மற்றும் முகவரி",
   "Tamilischer Kulturverein Krefeld e.V.": "கிறிபில்ட் தமிழ் கலாசாரச் சங்கம் e.V.",
@@ -205,13 +198,6 @@ const englishText = {
   "Unser Sri Nagapoosani Ambaal Tempel befindet sich derzeit in einem angemieteten Gebäude in zentraler Lage der Krefelder Innenstadt. Der Tempel ist dadurch gut erreichbar, gleichzeitig stehen in der Umgebung jedoch nur begrenzte Parkmöglichkeiten zur Verfügung. Die derzeitigen Räumlichkeiten und der aktuelle Standort sind langfristig nicht passend für die Bedürfnisse einer wachsenden Tempelgemeinschaft und für größere religiöse Veranstaltungen. Dennoch ist dieser Ort für unsere Gemeinschaft sehr wertvoll.": "Our Sri Nagapoosani Ambaal Temple is currently located in rented premises in central Krefeld. This makes the temple easy to reach, but parking nearby is limited. In the long term, the current premises and location are not suitable for the needs of our growing temple community or for larger religious events. Nevertheless, this place remains very valuable to our community.",
   "Unsere Vision ist es, ein geeignetes Grundstück in Krefeld zu erwerben und darauf einen eigenen hinduistischen Tempel zu errichten. Der neue Tempel soll ein würdevoller und dauerhafter Ort für Poojas, religiöse Feste, kulturelle Veranstaltungen und gemeinschaftliches Leben werden.": "Our vision is to purchase a suitable plot of land in Krefeld and build our own Hindu temple. The new temple should become a dignified and permanent home for Poojas, religious festivals, cultural events and community gatherings.",
   "Unser Glaube und das religiöse Leben unseres Tempels sollen auch für kommende Generationen erhalten bleiben. Dafür möchten wir einen dauerhaften spirituellen Mittelpunkt schaffen. Über alle weiteren Schritte und den Fortschritt des Projekts werden wir transparent informieren.": "Our faith and the religious life of our temple should continue for future generations. We hope to create a permanent spiritual home for this purpose. We will provide transparent updates about the next steps and the progress of the project.",
-  "Gemeinsam Zukunft gestalten": "Building Our Future Together",
-  "Ein Zuhause für kommende Generationen": "A Sacred Home for Future Generations",
-  "Jede Unterstützung bringt uns unserem Wunsch näher, in Krefeld ein geeignetes Grundstück zu erwerben und einen würdevollen, dauerhaften Tempel für Ambaal zu errichten. Wer diesen heiligen Weg begleiten möchte, kann den Verein per Banküberweisung unterstützen.": "Every contribution brings us closer to our vision of purchasing a suitable plot of land in Krefeld and building a dignified, permanent temple for Ambaal. Those who wish to support this sacred journey can contribute to the association by bank transfer.",
-  "Kontoinhaber": "Account Holder",
-  "Verwendungszweck": "Payment Reference",
-  "Bitte geben Sie bei der Überweisung den genannten Verwendungszweck an.": "Please include the stated reference with your bank transfer.",
-  "Der Verein ist gemeinnützig. Derzeit werden keine Spendenbescheinigungen ausgestellt.": "The association is recognised as a non-profit organisation. Donation receipts are currently not issued.",
   "Besucht uns": "Visit Us",
   "Kontakt und Anfahrt": "Contact and Directions",
   "Tamilischer Kulturverein Krefeld e.V.": "Tamil Cultural Association Krefeld e.V.",
@@ -267,7 +253,6 @@ const tamilAttributes = {
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் நாதஸ்வரம் மற்றும் தவில் இசைக்கலைஞர்கள்",
   "Tempelgemeinschaft während eines besonderen Festtages": "விசேட திருவிழாவின் போது ஆலயச் சமூகம்",
   "Routenplaner schließen": "வழிகாட்டியை மூடவும்",
-  "Spenden für Grundstück und Tempelbau": "நிலம் மற்றும் ஆலய நிர்மாணத்திற்கான நன்கொடைகள்",
   "Rechtliche Hinweise": "சட்ட அறிவிப்புகள்"
 };
 
@@ -312,7 +297,6 @@ const englishAttributes = {
   "Musiker mit Nadaswaram und Thavil im Tempel Krefeld": "Musicians playing Nadaswaram and Thavil at the Krefeld temple",
   "Tempelgemeinschaft während eines besonderen Festtages": "Temple community during a special festival day",
   "Routenplaner schließen": "Close route planner",
-  "Spenden für Grundstück und Tempelbau": "Donations for Land and Temple Construction",
   "Rechtliche Hinweise": "Legal information"
 };
 
