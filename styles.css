@@ -218,6 +218,24 @@ h1 {
 .split { display: grid; grid-template-columns: 1fr 0.9fr; gap: 80px; align-items: end; }
 html[lang="ta"] .intro-section .split { align-items: start; }
 #termine .split { align-items: start; }
+
+@media (min-width: 821px) {
+  #termine .section-inner { width: min(1320px, calc(100% - 56px)); }
+  #termine .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 64px;
+  }
+}
+@media (min-width: 821px) and (max-width: 1040px) {
+  #termine .split { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (min-width: 1440px) {
+  #termine .schedule-panel {
+    position: relative;
+    left: 24px;
+    width: calc(100% + 24px);
+  }
+}
 .section h2 { font: 600 clamp(36px, 4.1vw, 58px)/1.08 "Cinzel", serif; letter-spacing: -0.018em; }
 .section h2::after {
   content: ""; display: block; width: 62px; height: 2px; margin-top: 20px;
@@ -303,7 +321,7 @@ html[lang="ta"] .intro-section .split { align-items: start; }
 }
 .schedule-heading, .schedule-row {
   display: grid;
-  grid-template-columns: 1.15fr 0.82fr 0.72fr 1.25fr;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr) minmax(0, 0.92fr) minmax(0, 1.18fr);
   gap: 16px;
   align-items: center;
   padding: 14px 4px;
@@ -316,9 +334,18 @@ html[lang="ta"] .intro-section .split { align-items: start; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.schedule-row { min-height: 64px; font-size: 13px; }
+.schedule-row { min-height: 64px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.schedule-heading > *, .schedule-row > * { min-width: 0; }
 .schedule-row span { color: var(--muted); }
-.schedule-heading > span:last-child, .schedule-row > span:last-child { text-align: right; }
+.schedule-row > span {
+  justify-self: start;
+  white-space: nowrap;
+  text-align: left;
+}
+.schedule-heading > span:last-child, .schedule-row > span:last-child {
+  justify-self: end;
+  text-align: right;
+}
 .schedule-row > span:last-child { color: var(--deep); font-weight: 700; }
 .schedule-row.holy-day {
   position: relative;
@@ -783,6 +810,15 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .legal-overview .legal-card-wide:not(.legal-contact-card) h2, .legal-contact-card h2 { margin-bottom: 0; }
 }
 
+@media (max-width: 620px) {
+  #termine .schedule-panel {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #termine .schedule-heading,
+  #termine .schedule-row { min-width: 560px; }
+}
+
 @media (max-width: 430px) {
   .route-dialog { width: 100vw; max-width: none; margin: auto 0 0; border-radius: 18px 18px 0 0; }
   .route-dialog-panel { padding: 30px 20px 24px; }
@@ -817,7 +853,7 @@ address a small { color: var(--muted); font-size: 11px; font-weight: 500; }
   .offering-symbol { width: 56px; height: 56px; }
   .offering-status { grid-column: auto; }
   .visit-list { grid-template-columns: 1fr; }
-  .schedule-heading, .schedule-row { grid-template-columns: 0.95fr 0.78fr 0.7fr 1.15fr; gap: 6px; font-size: 10px; }
+  .schedule-heading, .schedule-row { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr) minmax(0, 0.92fr) minmax(0, 1.18fr); gap: 10px; font-size: 10px; }
   .schedule-row.holy-day strong { gap: 3px; }
   .schedule-row.holy-day strong::after { padding: 2px 3px; font-size: 6px; letter-spacing: 0.04em; }
   .legal-header { align-items: flex-start; padding: 16px 0; }
