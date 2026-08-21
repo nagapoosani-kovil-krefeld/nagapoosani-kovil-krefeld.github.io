@@ -584,7 +584,7 @@ html[lang="en"] .schedule-row.holy-day strong::after { content: "✦ Holy Day"; 
 }
 .donation-purpose {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 18px;
-  margin-top: 28px; padding: 17px 18px; border: 1px solid rgba(198, 155, 75, 0.38);
+  margin-top: auto; padding: 17px 18px; border: 1px solid rgba(198, 155, 75, 0.38);
   background: #fbf3e3;
 }
 .donation-purpose span { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
