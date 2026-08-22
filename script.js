@@ -144,6 +144,7 @@ const tamilText = {
 };
 
 const englishText = {
+  "Sri Nagapoosani Ambaal im Moolasthanam": "Sri Nagapoosani Ambaal in the Moolasthanam",
   "Zum Inhalt springen": "Skip to content",
   "Tempel Krefeld": "Temple Krefeld",
   "Unser Tempel": "Our Temple",
@@ -273,6 +274,9 @@ const englishText = {
 };
 
 const tamilAttributes = {
+  "Sri Nagapoosani Ambaal im Moolasthanam groß öffnen": "மூலஸ்தானத்தில் ஸ்ரீ நாகபூசணி அம்பாள் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Sri Nagapoosani Ambaal im Moolasthanam des Tempels Krefeld": "கிறிபில்ட் ஆலய மூலஸ்தானத்தில் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Navigation auswählen": "வழிகாட்டி செயலியைத் தேர்ந்தெடுக்கவும்",
   "Zur Startseite": "முகப்புப் பக்கத்திற்குச் செல்லவும்",
   "Logo des Sri Nagapoosani Ambaal Tempels Krefeld": "கிறிபில்ட் ஸ்ரீ நாகபூசணி அம்பாள் ஆலயத்தின் சின்னம்",
   "Hauptnavigation": "முதன்மை வழிசெலுத்தல்",
@@ -339,6 +343,9 @@ const tamilAttributes = {
 };
 
 const englishAttributes = {
+  "Sri Nagapoosani Ambaal im Moolasthanam groß öffnen": "Open Sri Nagapoosani Ambaal in the Moolasthanam in a large view",
+  "Sri Nagapoosani Ambaal im Moolasthanam des Tempels Krefeld": "Sri Nagapoosani Ambaal in the Moolasthanam of the Krefeld temple",
+  "Navigation auswählen": "Choose Navigation",
   "Zur Startseite": "Go to homepage",
   "Logo des Sri Nagapoosani Ambaal Tempels Krefeld": "Logo of the Sri Nagapoosani Ambaal Temple Krefeld",
   "Hauptnavigation": "Main navigation",
