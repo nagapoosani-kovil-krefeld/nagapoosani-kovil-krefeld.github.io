@@ -141,6 +141,8 @@ const tamilText = {
   "Varalakshmi-Pooja in Gemeinschaft": "சமூக வரலட்சுமி பூஜை",
   "Verbunden im Glauben": "இறைநம்பிக்கையில் ஒன்றிணைந்து",
   "Tempelgemeinschaft am Festtag": "விழா நாளில் ஆலயக் குடும்பம்",
+  "Ambaal wird feierlich getragen": "பக்தியுடன் சுமந்து செல்லப்படும் அம்பாள்",
+  "Gemeinsame Verehrung von Ambaal": "அம்பாளின் கூட்டு வழிபாடு",
 };
 
 const englishText = {
@@ -271,6 +273,8 @@ const englishText = {
   "Varalakshmi-Pooja in Gemeinschaft": "Varalakshmi Pooja in Community",
   "Verbunden im Glauben": "United in Faith",
   "Tempelgemeinschaft am Festtag": "Temple Community on the Festival Day",
+  "Ambaal wird feierlich getragen": "Ambaal Carried with Devotion",
+  "Gemeinsame Verehrung von Ambaal": "Community Worship of Ambaal",
 };
 
 const tamilAttributes = {
@@ -340,6 +344,10 @@ const tamilAttributes = {
   "Gläubige in gemeinsamer Andacht während der Varalakshmi Pooja": "வரலட்சுமி பூஜையில் ஒன்றிணைந்து வழிபடும் பக்தர்கள்",
   "Tempelgemeinschaft am Festtag groß öffnen": "விழா நாளில் ஆலயக் குடும்பம் படத்தைப் பெரிதாகத் திறக்கவும்",
   "Familien und Gläubige versammeln sich zur Varalakshmi Pooja im Tempel Krefeld": "கிறிபில்ட் ஆலயத்தில் வரலட்சுமி பூஜைக்காக ஒன்றுகூடிய குடும்பங்களும் பக்தர்களும்",
+  "Bild der feierlich getragenen Ambaal groß öffnen": "பக்தியுடன் சுமந்து செல்லப்படும் அம்பாளின் படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Sri Nagapoosani Ambaal wird während der Varalakshmi Pooja 2026 feierlich getragen": "வரலட்சுமி பூஜை 2026 இன் போது பக்தியுடன் சுமந்து செல்லப்படும் ஸ்ரீ நாகபூசணி அம்பாள்",
+  "Gemeinsame Verehrung von Ambaal groß öffnen": "அம்பாளின் கூட்டு வழிபாட்டு படத்தைப் பெரிதாகத் திறக்கவும்",
+  "Priester und Gläubige bei der gemeinsamen Verehrung von Sri Nagapoosani Ambaal während der Varalakshmi Pooja 2026": "வரலட்சுமி பூஜை 2026 இன் போது ஸ்ரீ நாகபூசணி அம்பாளை வழிபடும் ஆலயக் குருக்களும் பக்தர்களும்",
 };
 
 const englishAttributes = {
@@ -409,6 +417,10 @@ const englishAttributes = {
   "Gläubige in gemeinsamer Andacht während der Varalakshmi Pooja": "Devotees united in prayer during Varalakshmi Pooja",
   "Tempelgemeinschaft am Festtag groß öffnen": "Open Temple Community on the Festival Day in a large view",
   "Familien und Gläubige versammeln sich zur Varalakshmi Pooja im Tempel Krefeld": "Families and devotees gathered for Varalakshmi Pooja at the Krefeld temple",
+  "Bild der feierlich getragenen Ambaal groß öffnen": "Open the image of Ambaal being carried with devotion in a large view",
+  "Sri Nagapoosani Ambaal wird während der Varalakshmi Pooja 2026 feierlich getragen": "Sri Nagapoosani Ambaal being carried with devotion during Varalakshmi Pooja 2026",
+  "Gemeinsame Verehrung von Ambaal groß öffnen": "Open the community worship of Ambaal in a large view",
+  "Priester und Gläubige bei der gemeinsamen Verehrung von Sri Nagapoosani Ambaal während der Varalakshmi Pooja 2026": "Priests and devotees during the community worship of Sri Nagapoosani Ambaal at Varalakshmi Pooja 2026",
 };
 
 const textNodes = [];
