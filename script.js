@@ -509,8 +509,18 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
   });
 });
 
+function updateLanguageInUrl(language) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", language);
+  window.history.replaceState(null, "", url);
+}
+
 languageButtons.forEach((button) => {
-  button.addEventListener("click", () => applyLanguage(button.dataset.language));
+  button.addEventListener("click", () => {
+    const language = button.dataset.language;
+    applyLanguage(language);
+    updateLanguageInUrl(language);
+  });
 });
 
 const routePlannerButton = document.querySelector("[data-route-planner]");
@@ -590,6 +600,8 @@ galleryLightbox?.addEventListener("touchend", (event) => {
   updateLightbox(currentGalleryIndex + (distance < 0 ? 1 : -1));
 }, { passive: true });
 
+const languageFromUrl = new URLSearchParams(window.location.search).get("lang");
 let storedLanguage = "de";
 try { storedLanguage = window.localStorage.getItem("temple-language") || "de"; } catch (_) {}
-applyLanguage(storedLanguage);
+const initialLanguage = ["de", "ta", "en"].includes(languageFromUrl) ? languageFromUrl : storedLanguage;
+applyLanguage(initialLanguage);
